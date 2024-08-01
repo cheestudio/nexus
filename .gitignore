@@ -3,4 +3,5 @@ node_modules
 dist
 blocks
 .idea/
-.cjs
+*.cjs
+src/*.cjs

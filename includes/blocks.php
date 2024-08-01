@@ -11,7 +11,10 @@ add_filter( 'block_categories_all', 'CHEE_NAMESPACE\add_custom_block_category' )
 
 
 function register_blocks() {
-	register_block_type( __DIR__ . '/../blocks/back-to-top' );
+	$blocks = glob(__DIR__ . '/../blocks/*', GLOB_ONLYDIR);
+	foreach ($blocks as $block) {
+			register_block_type($block);
+	}
 }
 
 function add_custom_block_category( $categories ) {
