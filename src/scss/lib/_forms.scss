@@ -1,0 +1,24 @@
+/* Global Forms
+========================================================= */
+
+form {
+  input[type],
+  select,
+  textarea {
+    @include trans($dur: 300);
+    @include formInputStyles;
+    display: inline-block;
+    border-style: solid;
+    padding: 10px 15px;
+    font-family: inherit;
+    font-size: 16px !important;
+    line-height: normal;
+    color: black;
+    @include placeholder {
+      color: black;
+    }
+    &:focus {
+      border-color: $border-color-active;
+    }
+  }
+}

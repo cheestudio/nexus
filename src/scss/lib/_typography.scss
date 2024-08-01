@@ -1,0 +1,130 @@
+/* GLOBAL
+========================================================= */
+
+body {
+	line-height: var(--line-height, 1.5);
+	font-family: var(--wp--preset--font-family--body, sans-serif);
+	color: var(--wp--preset--color--black, #394a58);
+	font-size: var(--wp--preset--font-size--normal, 16px);
+	background: #fff;
+	font-optical-sizing: auto;
+}
+
+/* HEADINGS
+========================================================= */
+
+// COLOR
+
+:where(h1:not(.h3,.h4,.h5,.h6), h2:not(.h3,.h4,.h5,.h6), .h1, .h2) {
+	color: var(--wp--preset--color--black);
+}
+
+// MARGIN
+
+:where( h1, h2, h3, h4, h5, h6 ) {
+	margin-top: rem(10);
+	margin-bottom: rem(20);
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+:where(h1, h2, .h1, .h2) {
+	margin-bottom: rem(30);
+}
+
+:where(:is( h1, h2, h3, h4, h5, h6 ) + p) {
+	margin-top: 0;
+}
+
+// PRESETS
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--wp--preset--font-family--heading, sans-serif);
+}
+
+// Defined in theme.json by default. If you prefer to manage via SCSS, remove from theme.json and uncomment the following
+
+// h1,
+// .h1,
+// %h1 
+// {
+// 	font-size: var(--wp--preset--font-size--type-h-1);
+// }
+// h2,
+// .h2,
+// %h2 
+// {
+// 	font-size: var(--wp--preset--font-size--type-h-2);
+// }
+// h3,
+// .h3,
+// %h3 
+// {
+// 	font-size: var(--wp--preset--font-size--type-h-3);
+// }
+// h4,
+// .h4,
+// %h4 
+// {
+// 	font-size: var(--wp--preset--font-size--type-h-4);
+// }
+// h5,
+// .h5,
+// %h5 
+// {
+// 	font-size: var(--wp--preset--font-size--type-h-5);
+// }
+// h6,
+// .h6,
+// %h6 
+// {
+// 	font-size: var(--wp--preset--font-size--type-h-6);
+// }
+
+/* LINKS
+========================================================= */
+
+a {
+	text-decoration-line: none;
+	.entry-content & {
+		text-decoration: underline;
+	}
+	& {
+		color: currentColor;
+	}
+	.vcard &[href^="mailto:"],
+	.vcard &[href^="tel:"] {
+		font-weight: inherit;
+	}
+}
+
+@if ($context == "backend") {
+	:where(p, .wp-block-list) a {
+		// STYLES
+	}
+
+	:where(.disable-link-styling) a {
+		// STYLES
+	}
+}
+
+/* FOCUSING
+========================================================= */
+
+:where(body:not(.wp-admin)) *:focus-visible {
+	outline: 2px dotted;
+}
+
+*:focus:not(:focus-visible),
+[data-whatinput="mouse"][data-whatintent="mouse"] *:focus {
+	outline: none;
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
+	// prevent zoom on focus in safari mobile
+	input:focus,
+	textarea:focus {
+		font-size: 16px !important;
+	}
+}

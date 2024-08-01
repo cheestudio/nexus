@@ -1,0 +1,7 @@
+@media print {
+	.is-not-printable, // utility class to add to arbitrary content
+	.header,
+	.footer{
+		display: none !important;
+	}
+}

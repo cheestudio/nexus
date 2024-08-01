@@ -1,0 +1,55 @@
+{
+	"name": "chee-nexus",
+	"version": "1.0.0",
+	"description": "Custom WordPress blocks-centric starter theme",
+	"author": {
+		"name": "Chee Studio",
+		"url": "https://chee.studio"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cheestudio/nexus"
+	},
+	"scripts": {
+		"js": "rollup --config --bundleConfigAsCjs",
+		"css": "node sass.js",
+		"svg": "svgo -f ./svg ../dist/svg -r",
+		"img": "imagemin ./img/* --out-dir=../dist/img --plugin=pngquant --plugin=mozjpeg --plugin=pngcrush --plugin=zopfli",
+		"blocks": "wp-scripts build --webpack-src-dir=./blocks/ --output-path=../blocks/ --webpack-copy-php",
+		"js-backend": "wp-scripts build ./js/backend.js --webpack-src-dir=./js/ --output-path=../dist/backend",
+		"watch-js": "chokidar \"./js/**/*.js\" -c \"npm run js\"",
+		"watch-css": "chokidar \"./scss/**/*.scss\" \"../blocks/**/*.scss\" -c \"npm run css\"",
+		"watch-svg": "chokidar \"./svg/*.svg\" -c \"npm run svg\"",
+		"watch-img": "chokidar \"./img/**/*.*\" -c \"npm run img\"",
+		"watch-blocks": "wp-scripts start --webpack-src-dir=./blocks/ --output-path=../blocks/ --webpack-copy-php",
+		"watch-js-backend": "wp-scripts start ./js/backend.js --webpack-src-dir=./js/ --output-path=../dist/backend",
+		"clean": "recursive-delete \"../dist\"",
+		"build-dirty": "npm-run-all -p js css svg img blocks js-backend",
+		"build": "npm-run-all -s clean build-dirty",
+		"watch": "npm-run-all -p watch-css watch-js watch-svg watch-img watch-blocks watch-js-backend",
+		"dev": "npm-run-all -p build watch"
+
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^25.0.7",
+		"@rollup/plugin-legacy": "^3.0",
+		"@rollup/plugin-node-resolve": "^15.2",
+		"@rollup/plugin-terser": "^0.4",
+		"@wordpress/scripts": "^27.7",
+		"browser-sync-webpack-plugin": "^2.3.0",
+		"chokidar-cli": "^3.0",
+		"hoverintent": "^2.2",
+		"imagemin-cli": "^7.0",
+		"imagemin-mozjpeg": "^10.0",
+		"imagemin-pngcrush": "^7.0",
+		"imagemin-pngquant": "^9.0",
+		"imagemin-zopfli": "^7.0",
+		"mkdirp": "^3.0",
+		"npm-run-all": "^4.1.5",
+		"recursive-fs": "^2.1",
+		"rollup": "^4.16",
+		"sass": "^1.75",
+		"svgo": "^3.2",
+		"what-input": "^5.2"
+	}
+}

@@ -1,0 +1,20 @@
+$context: "backend";
+@import "frontend";
+
+:where(.is-layout-flow, .is-layout-constrained) > p + p {
+	margin-block-start: 1rem;
+}
+
+// Make the actual page title look less like it's going to be output as part of the page content, because it isn't
+.edit-post-visual-editor__post-title-wrapper.edit-post-visual-editor__post-title-wrapper {
+	margin: .5rem 0 2em !important;
+	padding: 1rem;
+	border-bottom: 1px solid #dedede;
+
+	h1 {
+		font-size: 1.75rem;
+		margin: 0 !important;
+		text-transform: none;
+		letter-spacing: revert;
+	}
+}
