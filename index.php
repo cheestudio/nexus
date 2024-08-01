@@ -11,10 +11,6 @@ $singular_block_template = is_singular()
 	: false;
 
 get_header();
-echo get_template();
-echo '<pre>';
-var_dump(wp_get_theme()->get('theme_root'));
-echo '</pre>';
 ?>
 <div class="wp-site-blocks is-layout-constrained" id="wp--skip-link--target">
 		<?php
