@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"version": "1",
+	"name": "chee-namespace/back-to-top",
+	"title": "Back to Top",
+	"category": "custom-blocks",
+	"example": {},
+	"supports": {
+		"spacing": {
+			"margin": [
+				"top",
+				"bottom"
+			]
+		}
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view-index.js"
+}

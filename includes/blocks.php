@@ -11,7 +11,7 @@ add_filter( 'block_categories_all', 'CHEE_NAMESPACE\add_custom_block_category' )
 
 
 function register_blocks() {
-	$blocks = glob(__DIR__ . '/../blocks/*', GLOB_ONLYDIR);
+	$blocks = glob(__DIR__ . '/../dist/blocks/*', GLOB_ONLYDIR);
 	foreach ($blocks as $block) {
 			register_block_type($block);
 	}

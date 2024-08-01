@@ -1,0 +1,29 @@
+.wp-block-table {
+	th {
+		vertical-align: bottom;
+	}
+
+	&.allow-horizontal-scroll {
+		margin-left: calc(-1 * var(--wp--style--root--padding-left)) !important;
+		margin-right: calc(-1 * var(--wp--style--root--padding-right)) !important;
+		padding: 0 var(--wp--style--root--padding-left);
+
+		table {
+			min-width: 600px;
+		}
+	}
+}
+
+.is-style-stripes {
+	&.is-style-stripes {
+		border: 0;
+	}
+
+	tr :is(td, th) {
+		border: 0;
+	}
+
+	tbody tr:nth-child(odd) td {
+		background: #eee; 
+	}
+}

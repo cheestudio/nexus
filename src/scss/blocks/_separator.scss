@@ -1,0 +1,10 @@
+hr.wp-block-separator {
+	border: solid var(--wp--preset--color--black);
+	border-width: 1px 0 0;
+
+	&.is-style-alt {
+		border: solid var(--wp--preset--color--black);
+		border-style: dashed;
+		border-width: 2px 0 0;
+	}
+}
