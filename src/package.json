@@ -1,7 +1,7 @@
 {
 	"name": "chee-nexus",
 	"version": "1.0.0",
-	"description": "Custom WordPress blocks-centric starter theme",
+	"description": "Block-Centric Scaffolding Framework",
 	"author": {
 		"name": "Chee Studio",
 		"url": "https://chee.studio"
