@@ -5,7 +5,6 @@ namespace CHEE_NAMESPACE;
 // Register React blocks
 add_action( 'init', 'CHEE_NAMESPACE\register_blocks' );
 
-
 // Add Custom Block Category
 add_filter( 'block_categories_all', 'CHEE_NAMESPACE\add_custom_block_category' );
 

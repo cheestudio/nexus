@@ -36,7 +36,6 @@ function acf_builder_field_registration() {
 /* Register Blocks (can be removed if $acf_blocks == false)
 ========================================================= */
 
-
 function register_acf_blocks() {
   define('BLOCKS_DIR', dirname(__FILE__, 2) . '/acf-blocks');
   foreach (glob(BLOCKS_DIR . '/**/block.json') as $block_path) {
