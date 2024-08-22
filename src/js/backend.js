@@ -1,6 +1,9 @@
 // Register custom block styles and unregister core styles
 import './backend/registerBlockStyles';
 
+// Unregister blocks
+import './backend/unregisterBlocks';
+
 // If a button has a url and placeholder but no text, set the placeholder as the text on save
 import './backend/setButtonTextFallbackToPlaceholder';
 
