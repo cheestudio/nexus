@@ -3,8 +3,8 @@
 namespace CHEE_NAMESPACE;
 
 // Customize default block templates by post type
-add_action( 'init', 'CHEE_NAMESPACE\customize_page_post_type' );
-add_action( 'init', 'CHEE_NAMESPACE\customize_post_post_type' );
+// add_action( 'init', 'CHEE_NAMESPACE\customize_page_post_type' );
+// add_action( 'init', 'CHEE_NAMESPACE\customize_post_post_type' );
 
 // Add custom classes to the body class
 add_filter( 'body_class', 'CHEE_NAMESPACE\post_name_in_body_class' );

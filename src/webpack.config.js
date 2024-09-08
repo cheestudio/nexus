@@ -42,7 +42,7 @@ module.exports = {
       {
         host: 'localhost',
         port: 3000,
-        proxy: 'http://startup.local', 
+        proxy: 'http://nexus.local', 
         files: [
           '../**/*.php',
           '../**/*.css',
