@@ -35,8 +35,11 @@ $browser-context: 16; // Default
 
 /* Global Transition ( property, duration, easing )
 ========================================================= */
-@mixin trans($prop: "all", $dur: 600, $ease: cubic-bezier(0.23, 1, 0.32, 1)) {
-	transition: $prop $dur + ms $ease;
+@mixin trans($prop: all, $dur: 200, $ease: ease-in-out) {
+  transition: $prop $dur + ms $ease;
+  @if ($prop != "all") {
+    will-change: $prop;
+  }
 }
 
 /* Clamp Dynamic Resize
