@@ -107,16 +107,6 @@
 ========================================================= */
 .gform_wrapper.gform_validation_error {
   .gform_validation_errors {
-    margin-bottom: 25px;
-    border-color: $border-color-error;
-    padding: 25px 20px !important;
-    border-top-width: $border-width-top * 1px !important;
-    border-bottom-width: $border-width-bottom * 1px !important;
-    border-right-width: $border-width-right * 1px !important;
-    border-left-width: $border-width-left * 1px !important;
-    border-color: $border-color-error !important;
-    border-radius: $border-radius * 1px !important;
-    box-shadow: $box-shadow !important;
     h2.gform_submission_error {
       font-family: var(--wp--preset--font-family--body);
       font-size: rem(16);
@@ -131,7 +121,6 @@
     textarea,
     legend,
     label {
-      @include formInputStyles;
       color: $border-color-error;
       border-color: $border-color-error;
       @include placeholder {
