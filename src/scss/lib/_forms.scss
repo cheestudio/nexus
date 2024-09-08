@@ -2,7 +2,7 @@
 ========================================================= */
 
 form {
-  input[type],
+  input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]),
   select,
   textarea {
     @include trans($dur: 300);
@@ -15,5 +15,12 @@ form {
     &:focus {
       border-color: $border-color-active;
     }
+  }
+  label, legend {
+    font-weight: 700;
+  }
+  input[type="submit"],
+  button {
+    @include button;
   }
 }
