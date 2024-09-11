@@ -23,7 +23,6 @@ $has_secondary_nav = has_nav_menu('secondary_nav');
 	<!-- Accessibility Skip to Content -->
 	<a class="skip-link screen-reader-text" href="#top-of-content"><?php esc_html_e('Skip to content', 'CHEE_NAMESPACE'); ?></a>
 
-	<div class="wp-site-blocks">
 		<header id="masthead" class="masthead">
 
 			<div class="site-branding">
@@ -67,8 +66,4 @@ $has_secondary_nav = has_nav_menu('secondary_nav');
 					<?php } ?>
 				</div>
 			<?php } ?>
-
-
 		</header>
-
-		<main id="top-of-content">

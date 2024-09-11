@@ -12,6 +12,7 @@ $singular_block_template = is_singular()
 
 get_header();
 ?>
+<main id="top-of-content">
 <div class="wp-site-blocks is-layout-constrained" id="wp--skip-link--target">
 		<?php
 		if (is_404()) :
@@ -43,6 +44,7 @@ get_header();
 
 		endif;
 		?>
-</div>
+	</div>
+</main>
 <?php
 get_footer();
