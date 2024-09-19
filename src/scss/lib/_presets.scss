@@ -2,47 +2,47 @@
 ========================================================= */
 
 %preset1 {
-  font-size: rem(60);
+  font-size: toRem(60);
   line-height: 1.2;
   // font-size: resize(40, 60, 768, 1440);
   @include for-size(laptop) {
-    // font-size: rem(50);
+    // font-size: toRem(50);
   }
   @include for-size(tablet) {
-    // font-size: rem(45);
+    // font-size: toRem(45);
   }
   @include for-size(tablet-sm) {
-    // font-size: rem(40);
+    // font-size: toRem(40);
   }
 
 }
 
 %preset2 {
-  font-size: rem(50);
+  font-size: toRem(50);
   line-height: 1.2;
 }
 
 %preset3 {
-  font-size: rem(40);
+  font-size: toRem(40);
   line-height: 1.2;
 }
 
 %preset4 {
-  font-size: rem(30);
+  font-size: toRem(30);
   line-height: 1.2;
 }
 
 %preset5 {
-  font-size: rem(24);
+  font-size: toRem(24);
   line-height: 1.2;
 }
 
 %preset6 {
-  font-size: rem(20);
+  font-size: toRem(20);
   line-height: 1.2;
 }
 
 %body-copy {
-  font-size: rem(18);
+  font-size: toRem(18);
   line-height: 1.4;
 }

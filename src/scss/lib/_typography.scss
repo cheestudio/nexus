@@ -22,15 +22,15 @@ body {
 // MARGIN
 
 :where( h1, h2, h3, h4, h5, h6 ) {
-	margin-top: rem(10);
-	margin-bottom: rem(20);
+	margin-top: toRem(10);
+	margin-bottom: toRem(20);
 	&:first-child {
 		margin-top: 0;
 	}
 }
 
 :where(h1, h2, .h1, .h2) {
-	margin-bottom: rem(30);
+	margin-bottom: toRem(30);
 }
 
 :where(:is( h1, h2, h3, h4, h5, h6 ) + p) {

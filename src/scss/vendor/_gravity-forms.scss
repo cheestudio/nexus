@@ -17,7 +17,7 @@
       .gform-field-label {
         font-weight: 700;
         margin-bottom: 6px;
-        font-size: rem(15);
+        font-size: toRem(15);
         .gfield_required {
           color: $border-color-error;
         }
@@ -111,7 +111,7 @@
   .gform_validation_errors {
     h2.gform_submission_error {
       font-family: var(--wp--preset--font-family--body);
-      font-size: rem(16);
+      font-size: toRem(16);
       font-style: italic;
       color: $border-color-error;
       text-align: center;

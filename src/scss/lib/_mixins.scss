@@ -23,13 +23,13 @@
 /* EM to PX
 ========================================================= */
 $browser-context: 16; // Default
-@function em($pixels, $context: $browser-context) {
+@function toEm($pixels, $context: $browser-context) {
 	@return math.div($pixels, $context) * 1em;
 }
 
 /* REM to PX
 ========================================================= */
-@function rem($size) {
+@function toRem($size) {
 	@return math.div($size, 16) * 1rem;
 }
 
@@ -112,7 +112,7 @@ $browser-context: 16; // Default
 	--bg: color-mix(in srgb, var(--wp--preset--color--black), white 70%);
 	--border-color: var(--bg);
 	--padding: 8px 14px;
-	--font-size: rem(14);
+	--font-size: toRem(14);
 	--color: var(--wp--preset--color--black);
 	&:hover,
 	&:focus {
