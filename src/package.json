@@ -19,6 +19,7 @@
 		"js-backend": "wp-scripts build ./js/backend.js --webpack-src-dir=./js/ --output-path=../dist/backend",
 		"watch-js": "chokidar \"./js/**/*.js\" -c \"npm run js\"",
 		"watch-css": "chokidar \"./scss/**/*.scss\" \"../blocks/**/*.scss\" -c \"npm run css\"",
+		"watch-acf-css": "chokidar \"../acf-blocks/**/*.scss\" -c \"npm run css\"",
 		"watch-svg": "chokidar \"./svg/*.svg\" -c \"npm run svg\"",
 		"watch-img": "chokidar \"./img/**/*.*\" -c \"npm run img\"",
 		"watch-blocks": "wp-scripts start --webpack-src-dir=./blocks/ --output-path=../dist/blocks/ --webpack-copy-php",
@@ -26,7 +27,7 @@
 		"clean": "recursive-delete \"../dist\"",
 		"build-dirty": "npm-run-all -p js css svg img blocks js-backend",
 		"build": "npm-run-all -s clean build-dirty",
-		"watch": "npm-run-all -p watch-css watch-js watch-svg watch-img watch-blocks watch-js-backend",
+		"watch": "npm-run-all -p watch-css watch-acf-css watch-js watch-svg watch-img watch-blocks watch-js-backend",
 		"dev": "npm-run-all -p build watch"
 
 	},
