@@ -19,10 +19,6 @@
 			"margin": true,
 			"padding": true,
 			"defaultSpacingSizes": false,
-			"units": [
-				"px",
-				"em"
-			],
 			"spacingSizes": [
 				{
 					"size": "5px",
