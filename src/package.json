@@ -15,6 +15,7 @@
 		"css": "node sass.js",
 		"svg": "svgo -f ./svg ../dist/svg -r",
 		"img": "imagemin ./img/* --out-dir=../dist/img --plugin=pngquant --plugin=mozjpeg --plugin=pngcrush --plugin=zopfli",
+		"fonts": "mkdirp ../dist/fonts && cp -r ./fonts/* ../dist/fonts/",
 		"blocks": "wp-scripts build --webpack-src-dir=./blocks/ --output-path=../dist/blocks/ --webpack-copy-php",
 		"js-backend": "wp-scripts build ./js/backend.js --webpack-src-dir=./js/ --output-path=../dist/backend",
 		"watch-js": "chokidar \"./js/**/*.js\" -c \"npm run js\"",
@@ -22,14 +23,14 @@
 		"watch-acf-css": "chokidar \"../acf-blocks/**/*.scss\" -c \"npm run css\"",
 		"watch-svg": "chokidar \"./svg/*.svg\" -c \"npm run svg\"",
 		"watch-img": "chokidar \"./img/**/*.*\" -c \"npm run img\"",
+		"watch-fonts": "chokidar \"./fonts/**/*.*\" -c \"npm run fonts\"",
 		"watch-blocks": "wp-scripts start --webpack-src-dir=./blocks/ --output-path=../dist/blocks/ --webpack-copy-php",
 		"watch-js-backend": "wp-scripts start ./js/backend.js --webpack-src-dir=./js/ --output-path=../dist/backend",
 		"clean": "recursive-delete \"../dist\"",
-		"build-dirty": "npm-run-all -p js css svg img blocks js-backend",
+		"build-dirty": "npm-run-all -p js css svg img fonts blocks js-backend",
 		"build": "npm-run-all -s clean build-dirty",
-		"watch": "npm-run-all -p watch-css watch-acf-css watch-js watch-svg watch-img watch-blocks watch-js-backend",
+		"watch": "npm-run-all -p watch-css watch-acf-css watch-js watch-svg watch-img watch-fonts watch-blocks watch-js-backend",
 		"dev": "npm-run-all -p build watch"
-
 	},
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^25.0.7",
@@ -52,5 +53,8 @@
 		"sass": "^1.75",
 		"svgo": "^3.2",
 		"what-input": "^5.2"
+	},
+	"dependencies": {
+		"gsap": "npm:@gsap/business@^3.12.5"
 	}
 }
