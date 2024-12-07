@@ -15,7 +15,7 @@
 		"css": "node sass.js",
 		"svg": "svgo -f ./svg ../dist/svg -r",
 		"img": "imagemin ./img/* --out-dir=../dist/img --plugin=pngquant --plugin=mozjpeg --plugin=pngcrush --plugin=zopfli",
-		"fonts": "mkdirp ../dist/fonts && cp -r ./fonts/* ../dist/fonts/",
+		"fonts": "[ -d ./fonts ] && mkdirp ../dist/fonts && cp -r ./fonts/* ../dist/fonts/ || echo 'No fonts found.'",
 		"blocks": "wp-scripts build --webpack-src-dir=./blocks/ --output-path=../dist/blocks/ --webpack-copy-php",
 		"js-backend": "wp-scripts build ./js/backend.js --webpack-src-dir=./js/ --output-path=../dist/backend",
 		"watch-js": "chokidar \"./js/**/*.js\" -c \"npm run js\"",
