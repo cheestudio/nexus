@@ -9,7 +9,9 @@ namespace CHEE_NAMESPACE;
 // Add custom classes to the body class
 add_filter('body_class', 'CHEE_NAMESPACE\post_name_in_body_class');
 
-
+// Add custom image sizes
+add_action('after_setup_theme', 'CHEE_NAMESPACE\register_custom_image_sizes');
+add_filter('image_size_names_choose', 'CHEE_NAMESPACE\add_custom_image_sizes_to_editor');
 
 // Removes the unused IDs
 add_filter('nav_menu_item_id', '__return_false');
@@ -55,7 +57,7 @@ function customize_page_post_type() {
 	global $wp_post_types;
 	$wp_post_types['page']->template = array(
 		array(
-			'cHEECHEE_NAMESPACE/header'
+			'CHEE_NAMESPACE/header'
 		),
 		array(
 			'core/paragraph',
@@ -64,6 +66,16 @@ function customize_page_post_type() {
 			)
 		),
 	);
+}
+
+function register_custom_image_sizes() {
+	add_image_size('square', 500, 500, true);
+}
+
+function add_custom_image_sizes_to_editor($sizes) {
+	return array_merge($sizes, array(
+		'square' => __('Square 500x500'),
+	));
 }
 
 
