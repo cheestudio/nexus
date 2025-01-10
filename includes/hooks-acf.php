@@ -8,8 +8,7 @@ if (defined('ACF_KEY')) {
 	define('ACF_PRO_LICENSE', ACF_KEY);
 }
 
-
-/* Custom ACF Functions
+/* Functions
 ========================================================= */
 
 // Register ACF options pages and subpages

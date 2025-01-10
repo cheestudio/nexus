@@ -5,6 +5,10 @@ namespace CHEE_NAMESPACE;
 // Register Resource Post Type
 // add_action( 'init', 'CHEE_NAMESPACE\resource_post_type', 0 );
 
+
+/* Functions
+========================================================= */
+
 function resource_post_type() {
 
   $single = 'Resource';

@@ -16,6 +16,17 @@ add_action( 'after_setup_theme', 'CHEE_NAMESPACE\enqueue_backend_css' );
 // get rid of jquery migrate (currently the only reason jquery is used is because of the Google Language Translator plugin...)
 add_action( 'wp_default_scripts', 'CHEE_NAMESPACE\dequeue_jquery_migrate' );
 
+// Add custom head code
+add_action('wp_head', 'CHEE_NAMESPACE\theme_head_code');
+
+// Add custom body code
+add_action('wp_body_open', 'CHEE_NAMESPACE\theme_body_code');
+
+// Add custom footer code
+add_action('wp_footer', 'CHEE_NAMESPACE\theme_footer_code');
+
+/* Functions
+========================================================= */
 
 function get_min_suffix() {
 	return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
@@ -107,5 +118,32 @@ function dequeue_jquery_migrate( $scripts ) {
 			$scripts->registered['jquery']->deps,
 			[ 'jquery-migrate' ]
 		);
+	}
+}
+
+function theme_head_code() {
+	if (function_exists('get_field')) {
+		$head_code = get_field('head_code', 'option');
+		if (isset($head_code)) {
+			echo $head_code;
+		}
+	}
+}
+
+function theme_body_code() {
+	if (function_exists('get_field')) {
+		$body_code = get_field('body_code', 'option');
+		if (isset($body_code)) {
+			echo $body_code;
+		}
+	}
+}
+
+function theme_footer_code() {
+	if (function_exists('get_field')) {
+		$footer_code = get_field('footer_code', 'option');
+		if (isset($footer_code)) {
+			echo $footer_code;
+		}
 	}
 }

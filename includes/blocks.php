@@ -9,6 +9,8 @@ add_action( 'init', 'CHEE_NAMESPACE\register_blocks' );
 add_filter( 'block_categories_all', 'CHEE_NAMESPACE\add_custom_block_category' );
 
 
+/* Functions
+========================================================= */
 function register_blocks() {
 	$blocks = glob(__DIR__ . '/../dist/blocks/*', GLOB_ONLYDIR);
 	foreach ($blocks as $block) {

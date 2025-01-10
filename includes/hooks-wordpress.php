@@ -48,7 +48,7 @@ add_action('admin_head', 'CHEE_NAMESPACE\custom_admin_css');
 // add_action('widgets_init', 'CHEE_NAMESPACE\register_widget_sidebars');
 
 
-/* Definitions
+/* Functions
 ========================================================= */
 function customize_excerpt_length() {
 	return 20;
