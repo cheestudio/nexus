@@ -78,7 +78,6 @@ function add_custom_image_sizes_to_editor($sizes) {
 	));
 }
 
-
 // function add_wrapper_around_core_list_block( $block_content ) {
 // 	return '<div class="wp-block-list">' . $block_content . '</div>';
 // }
