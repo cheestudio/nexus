@@ -53,8 +53,5 @@
 		"sass": "^1.75",
 		"svgo": "^3.2",
 		"what-input": "^5.2"
-	},
-	"dependencies": {
-		"gsap": "npm:@gsap/business@^3.12.5"
 	}
 }
