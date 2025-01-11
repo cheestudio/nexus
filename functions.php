@@ -13,7 +13,7 @@ if ( ! class_exists( 'ACF' ) ) {
 }
 
 // init ACF builder (optional)
-require get_template_directory() . '/includes/acf-builder.php';
+// require get_template_directory() . '/includes/acf-builder.php';
 
 // hooks for general WordPress
 require get_template_directory() . '/includes/hooks-wordpress.php';
