@@ -3,70 +3,76 @@
 
 // Breakpoints
 $breakpoints: (
-  phone-sm   : 320px,
-  phone      : 767px,
-  tablet-sm  : 768px,
-  tablet     : 1024px,
-  laptop-sm  : 1280px,
-  laptop     : 1440px,
-  desktop-sm : 1680px,
-  desktop    : 1920px
-  );
-
+  phone-sm: 320px,
+  phone: 480px,
+  tablet-sm: 768px,
+  tablet: 1024px,
+  laptop-sm: 1280px,
+  laptop: 1440px,
+  desktop-sm: 1680px,
+  desktop: 1920px,
+);
 
 /* Media Breakpoints
 ========================================================= */
-@mixin for-size( $breakpoint, $direction:down, $offset:none) {
-
+@mixin for-size($breakpoint, $direction: down, $offset: none) {
   // If the breakpoint exists in the map.
-  @if map-has-key( $breakpoints, $breakpoint ) {
-
-    $breakpoint-value: map-get( $breakpoints, $breakpoint );
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
 
     // Optional: Offset by +/- 1 to avoid conflicts
     @if ($direction == down) and ($offset == none) {
-      @media only screen and (max-width: $breakpoint-value) { @content; }
-    }   
-    @else if ($direction == up) and ($offset == none) {
-      @media only screen and (min-width: $breakpoint-value) { @content; }
-    }
-    @else if ($direction == down) and ($offset == offset) {
-      @media only screen and (max-width: $breakpoint-value - 1) { @content; }
-    } 
-    @else if ($direction == up) and ($offset == offset) {
-      @media only screen and (min-width: $breakpoint-value + 1) { @content; }
+      @media only screen and (max-width: $breakpoint-value) {
+        @content;
+      }
+    } @else if ($direction == up) and ($offset == none) {
+      @media only screen and (min-width: $breakpoint-value) {
+        @content;
+      }
+    } @else if ($direction == down) and ($offset == offset) {
+      @media only screen and (max-width: $breakpoint-value - 1) {
+        @content;
+      }
+    } @else if ($direction == up) and ($offset == offset) {
+      @media only screen and (min-width: $breakpoint-value + 1) {
+        @content;
+      }
     }
   }
 
   // Use manual breakpoint instead if map doesn't exist
   @else {
     @if ($direction == down) {
-      @media only screen and (max-width: $breakpoint) { @content; }
-    }
-    @else if ($direction == up) {
-      @media only screen and (min-width: $breakpoint) { @content; }
+      @media only screen and (max-width: $breakpoint) {
+        @content;
+      }
+    } @else if ($direction == up) {
+      @media only screen and (min-width: $breakpoint) {
+        @content;
+      }
     }
   }
 }
 
-
 /* Between Breakpoints
 ========================================================= */
-@mixin between-sizes( $lower, $upper ) {
-
+@mixin between-sizes($lower, $upper) {
   // If both the lower and upper breakpoints exist in the map
-  @if map-has-key( $breakpoints, $lower ) and map-has-key( $breakpoints, $upper ) {
-
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
     // Get the lower and upper breakpoints
-    $lower-breakpoint: map-get( $breakpoints, $lower );
-    $upper-breakpoint: map-get( $breakpoints, $upper );
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
 
     // Write the media query
-    @media only screen and (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint)) { @content; }
+    @media only screen and (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint)) {
+      @content;
+    }
   }
 
   // If the breakpoints don't exist, allow manual breakpoints
   @else {
-    @media only screen and (min-width: $lower) and (max-width: ($upper)) { @content; }
+    @media only screen and (min-width: $lower) and (max-width: ($upper)) {
+      @content;
+    }
   }
 }
