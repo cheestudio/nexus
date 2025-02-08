@@ -3,40 +3,40 @@
 /* Fonts (fonts defined in theme.json)
 ========================================================= */
 @mixin font($style: "body") {
-	@if ($style == "body") {
-		font-family: var(--wp--preset--font-family--body);
-	} @else if ($style == "heading") {
-		font-family: var(--wp--preset--font-family--heading);
-	}
+  @if ($style == "body") {
+    font-family: var(--wp--preset--font-family--body);
+  } @else if ($style == "heading") {
+    font-family: var(--wp--preset--font-family--heading);
+  }
 }
 
 /* BG Image
 ========================================================= */
 @mixin bg($sizing: cover, $position: center, $repeat: no-repeat) {
-	background: {
-		position: $position;
-		repeat: $repeat;
-		size: $sizing;
-	}
+  background: {
+    position: $position;
+    repeat: $repeat;
+    size: $sizing;
+  }
 }
 
 /* EM to PX
 ========================================================= */
 $browser-context: 16; // Default
 @function toEm($pixels, $context: $browser-context) {
-	@return math.div($pixels, $context) * 1em;
+  @return math.div($pixels, $context) * 1em;
 }
 
 /* REM to PX
 ========================================================= */
 @function toRem($size) {
-	@return math.div($size, 16) * 1rem;
+  @return math.div($size, 16) * 1rem;
 }
 
 /* Global Transition ( property, duration, easing )
 ========================================================= */
 @mixin trans($prop: all, $dur: 200, $ease: ease-in-out) {
-  transition: $prop $dur + ms $ease;
+  transition: $prop calc($dur * 1ms) $ease;
   @if ($prop != "all") {
     will-change: $prop;
   }
@@ -45,81 +45,80 @@ $browser-context: 16; // Default
 /* Clamp Dynamic Resize
 ========================================================= */
 @function resize($minSize, $maxSize, $minViewWidth, $maxViewWidth) {
-	$slope: calc(($maxSize - $minSize) / ($maxViewWidth - $minViewWidth));
-	$yAxis: calc($minSize + ($minViewWidth * $slope * -1));
+  $slope: calc(($maxSize - $minSize) / ($maxViewWidth - $minViewWidth));
+  $yAxis: calc($minSize + ($minViewWidth * $slope * -1));
 
-	$minSizeRem: (math.div($minSize, 16)) * 1rem;
-	$maxSizeRem: (math.div($maxSize, 16)) * 1rem;
-	$slopeViewWidth: calc(#{$slope * 100}vw);
-	$yAxisRem: (math.div($yAxis, 16)) * 1rem;
+  $minSizeRem: (math.div($minSize, 16)) * 1rem;
+  $maxSizeRem: (math.div($maxSize, 16)) * 1rem;
+  $slopeViewWidth: calc(#{$slope * 100}vw);
+  $yAxisRem: (math.div($yAxis, 16)) * 1rem;
 
-	@if ($yAxisRem == 0rem) {
-		$preferredValue: clamp($minSizeRem, $slopeViewWidth, $maxSizeRem);
-		@return $preferredValue;
-	} @else {
-		$preferredValue: clamp($minSizeRem, calc($yAxisRem + $slopeViewWidth), $maxSizeRem);
-		@return $preferredValue;
-	}
+  @if ($yAxisRem == 0rem) {
+    $preferredValue: clamp($minSizeRem, $slopeViewWidth, $maxSizeRem);
+    @return $preferredValue;
+  } @else {
+    $preferredValue: clamp($minSizeRem, calc($yAxisRem + $slopeViewWidth), $maxSizeRem);
+    @return $preferredValue;
+  }
 }
 
 /* Buttons
 ========================================================= */
 @mixin button {
-	--padding: 15px 30px;
-	--bg: var(--wp--preset--color--black);
-	--color: var(--wp--preset--color--white);
-	--border-color: var(--wp--preset--color--black);
-	color: var(--color);
-	background: var(--bg);
-	padding: var(--padding);
-	border-radius: 5px;
-	border: 2px solid var(--border-color);
-	font-size: var(--wp--preset--font-size--type-body);
-	font-weight: 700;
-	line-height: 1.3;
-	letter-spacing: 2.8px;
-	text-transform: uppercase;
-	transition:
-		background-color 0.25s,
-		color 0.25s,
-		border-color 0.25s;
-	text-decoration: none;
-	outline-color: #000;
-	cursor: pointer; // in case this is applied to a <button> instead of an <a>
+  --padding: 15px 30px;
+  --bg: var(--wp--preset--color--black);
+  --color: var(--wp--preset--color--white);
+  --border-color: var(--wp--preset--color--black);
+  color: var(--color);
+  background: var(--bg);
+  padding: var(--padding);
+  border-radius: 5px;
+  border: 2px solid var(--border-color);
+  font-size: var(--wp--preset--font-size--type-body);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  transition:
+    background-color 0.25s,
+    color 0.25s,
+    border-color 0.25s;
+  text-decoration: none;
+  outline-color: #000;
+  cursor: pointer; // in case this is applied to a <button> instead of an <a>
 
-	&:hover,
-	&:focus-visible {
-		--bg: color-mix(in srgb, var(--wp--preset--color--black), white 20%);
-		--color: #fff;
-		--border-color: var(--bg);
-	}
-
+  &:hover,
+  &:focus-visible {
+    --bg: color-mix(in srgb, var(--wp--preset--color--black), white 20%);
+    --color: #fff;
+    --border-color: var(--bg);
+  }
 }
 
 @mixin button-secondary {
-	--bg: var(--wp--preset--color--white);
-	--border-color: color-mix(in srgb, var(--wp--preset--color--black), white 20%);
-	--color: var(--border-color);
-	&:hover,
-	&:focus {
-		--bg: var(--wp--preset--color--black);
-		--color: var(--wp--preset--color--white);
-		--border-color: var(--wp--preset--color--black);
-	}
+  --bg: var(--wp--preset--color--white);
+  --border-color: color-mix(in srgb, var(--wp--preset--color--black), white 20%);
+  --color: var(--border-color);
+  &:hover,
+  &:focus {
+    --bg: var(--wp--preset--color--black);
+    --color: var(--wp--preset--color--white);
+    --border-color: var(--wp--preset--color--black);
+  }
 }
 
 @mixin button-tertiary {
-	--bg: color-mix(in srgb, var(--wp--preset--color--black), white 70%);
-	--border-color: var(--bg);
-	--padding: 8px 14px;
-	--font-size: toRem(14);
-	--color: var(--wp--preset--color--black);
-	&:hover,
-	&:focus {
-		--bg: var(--wp--preset--color--white);
-		--color: var(--wp--preset--color--black);
-		--border-color: var(--wp--preset--color--black);
-	}
+  --bg: color-mix(in srgb, var(--wp--preset--color--black), white 70%);
+  --border-color: var(--bg);
+  --padding: 8px 14px;
+  --font-size: toRem(14);
+  --color: var(--wp--preset--color--black);
+  &:hover,
+  &:focus {
+    --bg: var(--wp--preset--color--white);
+    --color: var(--wp--preset--color--black);
+    --border-color: var(--wp--preset--color--black);
+  }
 }
 
 /* Form Inputs
@@ -136,225 +135,225 @@ $border-radius: 4px;
 $box-shadow: 0px 0px 5px rgba(black, 0.1);
 
 @mixin formInputStyles {
-	border-top-width: $border-width-top;
-	border-bottom-width: $border-width-bottom;
-	border-right-width: $border-width-right;
-	border-left-width: $border-width-left;
-	border-color: $border-color;
-	border-radius: $border-radius;
-	box-shadow: $box-shadow !important;
-	&:hover,
-	&:focus {
-		border-color: $border-color-active;
-	}
+  border-top-width: $border-width-top;
+  border-bottom-width: $border-width-bottom;
+  border-right-width: $border-width-right;
+  border-left-width: $border-width-left;
+  border-color: $border-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow !important;
+  &:hover,
+  &:focus {
+    border-color: $border-color-active;
+  }
 }
 
 /* Additional Helper Mixins
 ========================================================= */
 
 @mixin list-reset {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 @mixin margin-center {
-	margin-left: auto;
-	margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @mixin no-margin-last {
-	&:last-of-type {
-		margin-bottom: 0;
-	}
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 @mixin padding-remove {
-	margin-left: $padding-side * -1;
-	margin-right: $padding-side * -1;
+  margin-left: $padding-side * -1;
+  margin-right: $padding-side * -1;
 }
 
 @mixin center($dir: "vert") {
-	@if ($dir == "vert") {
-		top: 50%;
-		transform: translateY(-50%);
-	} @else if ($dir == "horiz") {
-		left: 50%;
-		transform: translateX(-50%);
-	}
+  @if ($dir == "vert") {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if ($dir == "horiz") {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 @mixin display($state: "show") {
-	@if ($state == "show") {
-		opacity: 1;
-		visibility: visible;
-	} @else if ($state == "hide") {
-		opacity: 0;
-		visibility: hidden;
-	}
+  @if ($state == "show") {
+    opacity: 1;
+    visibility: visible;
+  } @else if ($state == "hide") {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 @mixin placeholder {
-	&::-webkit-input-placeholder {
-		@content;
-	}
-	&:-moz-placeholder {
-		@content;
-	}
-	&::-moz-placeholder {
-		@content;
-	}
-	&:-ms-input-placeholder {
-		@content;
-	}
-	&::placeholder {
-		@content;
-	}
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::placeholder {
+    @content;
+  }
 }
 
 // https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
 @mixin fix-long-links {
-	overflow-wrap: break-word;
-	word-wrap: break-word;
-	-ms-word-break: break-all;
-	word-break: break-all;
-	word-break: break-word;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
 }
 
 @mixin underline-style {
-	text-decoration-thickness: 2px;
-	text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 @mixin body-link-style {
-	font-weight: 400;
-	color: var(--wp--preset--color--red);
-	text-decoration-line: underline;
-	text-decoration-color: var(--wp--preset--color--red);
-	transition: text-decoration-color 0.25s;
+  font-weight: 400;
+  color: var(--wp--preset--color--red);
+  text-decoration-line: underline;
+  text-decoration-color: var(--wp--preset--color--red);
+  transition: text-decoration-color 0.25s;
 
-	&:hover {
-		text-decoration-color: var(--wp--preset--color--black);
-	}
+  &:hover {
+    text-decoration-color: var(--wp--preset--color--black);
+  }
 }
 
 @mixin svg-icon($icon) {
-	content: "";
-	display: inline-block;
-	background-color: currentColor;
-	mask: $icon no-repeat center;
-	-webkit-mask: $icon no-repeat center;
+  content: "";
+  display: inline-block;
+  background-color: currentColor;
+  mask: $icon no-repeat center;
+  -webkit-mask: $icon no-repeat center;
 }
 
 @mixin list-style {
-	list-style: none;
-	padding: 0;
-	margin: 1rem 0;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
 
-	li {
-		margin-bottom: 15px;
-		padding-left: 21px;
-		position: relative;
-		&::marker {
-			color: red;
-		}
-	}
+  li {
+    margin-bottom: 15px;
+    padding-left: 21px;
+    position: relative;
+    &::marker {
+      color: red;
+    }
+  }
 }
 
 @mixin icon-list {
-	margin-bottom: 20px;
-	padding-left: 25px;
+  margin-bottom: 20px;
+  padding-left: 25px;
 
-	&::before {
-		background: no-repeat center red;
-		height: 24px;
-		width: 14px;
-		top: 0;
-		border-radius: 0;
-	}
+  &::before {
+    background: no-repeat center red;
+    height: 24px;
+    width: 14px;
+    top: 0;
+    border-radius: 0;
+  }
 }
 
 // screen reader text
 @mixin screen-reader-text {
-	border: 0;
-	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-	word-wrap: normal !important;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
 }
 
 // mobile menu hamburger
 @mixin menu-toggle {
-	$button-width: 44px;
-	$button-height: 44px;
-	$bar-width: 21px;
-	$duration: 0.15s;
-	$bar-height: 2px;
-	$bar-spacing: 6px;
-	border: 0;
-	cursor: pointer;
-	width: $button-width;
-	height: $button-height;
-	padding: 0 calc((#{$button-width - $bar-width}) / 2);
-	transition: background-color 0.25s;
-	outline-color: #fff;
+  $button-width: 44px;
+  $button-height: 44px;
+  $bar-width: 21px;
+  $duration: 0.15s;
+  $bar-height: 2px;
+  $bar-spacing: 6px;
+  border: 0;
+  cursor: pointer;
+  width: $button-width;
+  height: $button-height;
+  padding: 0 calc((#{$button-width - $bar-width}) / 2);
+  transition: background-color 0.25s;
+  outline-color: #fff;
 
-	&,
-	&:focus {
-		background: none;
-	}
+  &,
+  &:focus {
+    background: none;
+  }
 
-	.bars {
-		display: block;
-		margin: 0 auto;
-		background: var(--wp--preset--color--black);
-		height: $bar-height;
-		width: $bar-width;
-		transition: max-width $duration ease-out;
-		border-radius: 99em;
+  .bars {
+    display: block;
+    margin: 0 auto;
+    background: var(--wp--preset--color--black);
+    height: $bar-height;
+    width: $bar-width;
+    transition: max-width $duration ease-out;
+    border-radius: 99em;
 
-		&::before,
-		&::after {
-			border-radius: 99em;
-			position: relative;
-			width: $bar-width;
-			content: "";
-			background: var(--wp--preset--color--black);
-			height: $bar-height;
-			display: block;
-			left: calc(50% - #{$bar-width} / 2);
-			top: -$bar-spacing - $bar-height;
-			transition:
-				top $duration ease-out,
-				transform $duration ease-out;
-		}
+    &::before,
+    &::after {
+      border-radius: 99em;
+      position: relative;
+      width: $bar-width;
+      content: "";
+      background: var(--wp--preset--color--black);
+      height: $bar-height;
+      display: block;
+      left: calc(50% - #{$bar-width} / 2);
+      top: -$bar-spacing - $bar-height;
+      transition:
+        top $duration ease-out,
+        transform $duration ease-out;
+    }
 
-		&::after {
-			top: $bar-spacing;
-		}
-	}
+    &::after {
+      top: $bar-spacing;
+    }
+  }
 
-	&[aria-expanded="true"] .bars {
-		max-width: 0;
-		transition: max-width 0s $duration;
+  &[aria-expanded="true"] .bars {
+    max-width: 0;
+    transition: max-width 0s $duration;
 
-		&::before,
-		&::after {
-			top: 0;
-			transform: rotate(45deg);
-			transition:
-				top $duration ease-in,
-				transform $duration $duration ease-out;
-		}
+    &::before,
+    &::after {
+      top: 0;
+      transform: rotate(45deg);
+      transition:
+        top $duration ease-in,
+        transform $duration $duration ease-out;
+    }
 
-		&::after {
-			top: -$bar-height;
-			transform: rotate(-45deg);
-		}
-	}
+    &::after {
+      top: -$bar-height;
+      transform: rotate(-45deg);
+    }
+  }
 }
