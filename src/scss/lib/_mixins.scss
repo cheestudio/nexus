@@ -2,11 +2,18 @@
 
 /* Fonts (fonts defined in theme.json)
 ========================================================= */
-@mixin font($style: "body") {
+@mixin font($style: "body", $important: false) {
+  $font-family: null;
   @if ($style == "body") {
-    font-family: var(--wp--preset--font-family--body);
+    $font-family: var(--wp--preset--font-family--body);
   } @else if ($style == "heading") {
-    font-family: var(--wp--preset--font-family--heading);
+    $font-family: var(--wp--preset--font-family--heading);
+  }
+
+  @if ($important) {
+    font-family: $font-family !important;
+  } @else {
+    font-family: $font-family;
   }
 }
 
