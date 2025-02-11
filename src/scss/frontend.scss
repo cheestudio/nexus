@@ -19,6 +19,6 @@ $context: "frontend" !default;
 @import "blocks/separator";
 @import "blocks/table";
 @import "blocks/kadence";
-// @import "blocks/acf-block-name";
+@import "blocks/misc";
 
 @import "vendor/gravity-forms";

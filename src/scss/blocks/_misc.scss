@@ -1,0 +1,8 @@
+// ios fix
+summary {
+  list-style: none;
+  &::-webkit-details-marker,
+  &::marker {
+    display: none;
+  }
+}
