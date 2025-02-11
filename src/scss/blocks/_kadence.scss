@@ -1,17 +1,19 @@
 /* Animations (reduce movement)
 ========================================================= */
-.aos-init {
-  transition-duration: 0.6s !important;
-  &[data-aos="fade-up"] {
+body {
+  .aos-init {
+    transition-duration: 0.6s !important;
+  }
+  :where([data-aos="fade-up"]) {
     transform: translate3d(0, 25px, 0);
   }
-  &[data-aos="fade-down"] {
+  :where([data-aos="fade-down"]) {
     transform: translate3d(0, -25px, 0);
   }
-  &[data-aos="fade-right"] {
+  :where([data-aos="fade-right"]) {
     transform: translate3d(-25px, 0, 0);
   }
-  &[data-aos="fade-left"] {
+  :where([data-aos="fade-left"]) {
     transform: translate3d(25px, 0, 0);
   }
 }
