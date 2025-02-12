@@ -2,10 +2,10 @@
   "name": "acf/page-hero",
   "title": "Page Hero",
   "description": "Page Hero with Background Image and Inner Blocks",
-  "style": "file:./style.css" ,
-  "category": "custom_blocks",
+  "style": "file:./style.css",
+  "category": "custom-blocks",
   "icon": "cover-image",
-  "keywords": ["hero","masthead","banner"],
+  "keywords": ["hero", "masthead", "banner"],
   "acf": {
     "mode": "preview",
     "renderTemplate": "template.php",
@@ -24,29 +24,29 @@
     "fullHeight": false,
     "alignText": false,
     "spacing": {
-        "margin": true,
-        "padding": true
+      "margin": true,
+      "padding": true
     },
     "typography": {
-        "lineHeight": false,
-        "fontSize": false
+      "lineHeight": false,
+      "fontSize": false
     }
   },
   "example": {
-		"innerBlocks": [
-			{
-				"name": "core/heading",
-				"attributes": {
-					"level": 1,
-					"content": "Page Hero Header"
-				}
-			},
-			{
-				"name": "core/paragraph",
-				"attributes": {
-					"content": "Page Hero Copy"
-				}
-			}
-		]
-	}
+    "innerBlocks": [
+      {
+        "name": "core/heading",
+        "attributes": {
+          "level": 1,
+          "content": "Page Hero Header"
+        }
+      },
+      {
+        "name": "core/paragraph",
+        "attributes": {
+          "content": "Page Hero Copy"
+        }
+      }
+    ]
+  }
 }

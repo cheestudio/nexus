@@ -4,7 +4,7 @@ $context: "frontend" !default;
 @import "lib/variables";
 @import "lib/mixins";
 @import "lib/sanitize";
-// @import "lib/presets";
+@import "lib/presets";
 @import "lib/typography";
 @import "lib/layout";
 @import "lib/forms";
@@ -18,7 +18,7 @@ $context: "frontend" !default;
 @import "blocks/list";
 @import "blocks/separator";
 @import "blocks/table";
-// @import "blocks/acf-block-name";
-
+@import "blocks/kadence";
+@import "blocks/misc";
 
 @import "vendor/gravity-forms";

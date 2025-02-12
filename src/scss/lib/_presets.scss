@@ -1,48 +1,73 @@
 /* Headers and Presets
 ========================================================= */
-
-%preset1 {
-  font-size: toRem(60);
-  line-height: 1.2;
-  // font-size: resize(40, 60, 768, 1440);
-  @include for-size(laptop) {
-    // font-size: toRem(50);
-  }
-  @include for-size(tablet) {
-    // font-size: toRem(45);
-  }
-  @include for-size(tablet-sm) {
-    // font-size: toRem(40);
-  }
-
-}
-
-%preset2 {
-  font-size: toRem(50);
+%h1,
+.h1,
+.has-type-h-1-font-size {
+  @include font("heading");
+  font-size: var(--wp--preset--font-size--type-h-1);
+  font-weight: 700;
   line-height: 1.2;
 }
 
-%preset3 {
-  font-size: toRem(40);
+%h2,
+.h2,
+.has-type-h-2-font-size {
+  @include font("heading");
+  font-size: var(--wp--preset--font-size--type-h-2);
+  font-weight: 700;
   line-height: 1.2;
 }
 
-%preset4 {
-  font-size: toRem(30);
+%h3,
+.h3,
+.has-type-h-3-font-size {
+  @include font("heading");
+  font-size: var(--wp--preset--font-size--type-h-3);
+  font-weight: 400;
   line-height: 1.2;
 }
 
-%preset5 {
-  font-size: toRem(24);
+%h4,
+.h4,
+.has-type-h-4-font-size {
+  @include font("heading");
+  font-size: var(--wp--preset--font-size--type-h-4);
+  font-weight: 400;
   line-height: 1.2;
 }
 
-%preset6 {
-  font-size: toRem(20);
+%h5,
+.h5,
+.has-type-h-5-font-size {
+  @include font("heading");
+  font-size: var(--wp--preset--font-size--type-h-5);
+  font-weight: 400;
   line-height: 1.2;
 }
 
-%body-copy {
-  font-size: toRem(18);
-  line-height: 1.4;
+%h6,
+.h6,
+.has-type-h-6-font-size {
+  @include font("heading");
+  font-size: var(--wp--preset--font-size--type-h-6);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+%body-copy,
+.has-type-body-font-size {
+  @include font("body");
+  font-size: var(--wp--preset--font-size--type-body);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+%body-copy-small,
+.has-type-body-small-font-size {
+  // optional overrides
+}
+
+%body-copy-large,
+.has-type-body-large-font-size {
+  // optional overrides
 }

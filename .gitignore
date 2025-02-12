@@ -5,3 +5,4 @@ dist/blocks
 .idea/
 *.cjs
 src/*.cjs
+src/pnpm-lock.yaml
