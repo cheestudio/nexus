@@ -1,72 +1,90 @@
 /* GLOBAL
 ========================================================= */
 body {
-	// Match both sides
-	--wp--style--root--padding-right: var(--wp--style--root--padding-left);
+  // Match both sides
+  --wp--style--root--padding-right: var(--wp--style--root--padding-left);
 
-	// have kadence inherit the setting in theme.json
-	--global-content-edge-padding: var(--wp--style--root--padding-left);
+  // have kadence inherit the setting in theme.json
+  --global-content-edge-padding: var(--wp--style--root--padding-left);
 }
 
 // set page min height
 .wp-site-blocks {
-	body.admin-bar & {
-		min-height: calc(100vh - 32px);
-	}
-	.footer {
-		margin-top: auto;
-	}
+  body.admin-bar & {
+    min-height: calc(100vh - 32px);
+  }
+  .footer {
+    margin-top: auto;
+  }
 }
 
 // Embeds
 :where(audio, canvas, iframe, img, svg, video) {
-	max-width: 100%;
+  max-width: 100%;
 }
 
 // transitions & WCAG
 
 @media (prefers-reduced-motion: no-preference) {
-	html {
-		scroll-behavior: smooth;
-	}
-	[id] {
-		scroll-margin-block-start: 130px;
-		@include for-size(tablet) {
-			scroll-margin-block-start: 70px;
-		}
-	}
+  html {
+    scroll-behavior: smooth;
+  }
+  [id] {
+    scroll-margin-block-start: 130px;
+    @include for-size(tablet) {
+      scroll-margin-block-start: 70px;
+    }
+  }
 }
 
 @media screen and (prefers-reduced-motion: reduce), (update: slow) {
-	* {
-		transition-duration: 0.001ms !important;
-	}
+  * {
+    transition-duration: 0.001ms !important;
+  }
 }
 
 /* KADENCE
 ========================================================= */
 // Force Kadence to behave same as core blocks
 .kt-row-column-wrap.kb-theme-content-width {
-	box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 // Half-Contained Content Rows
 .is-constrained-left {
-	padding-left: var(--constrainer) !important;
-	padding-right: 0 !important;
-	@include for-size(phone, up) {
-		.kt-row-column-wrap {
-			padding: 0 !important;
-		}
-	}
+  padding-left: var(--constrainer) !important;
+  padding-right: 0 !important;
+  @include for-size(phone, up) {
+    .kt-row-column-wrap {
+      padding: 0 !important;
+    }
+  }
 }
 
 .is-constrained-right {
-	padding-right: var(--constrainer) !important;
-	padding-left: 0 !important;
-	@include for-size(phone, up) {
-		.kt-row-column-wrap {
-			padding: 0 !important;
-		}
-	}
+  padding-right: var(--constrainer) !important;
+  padding-left: 0 !important;
+  @include for-size(phone, up) {
+    .kt-row-column-wrap {
+      padding: 0 !important;
+    }
+  }
+}
+
+// inherit WP native image alignment
+.wp-block-kadence-rowlayout {
+  .wp-block-image {
+    &.alignleft {
+      float: left;
+      margin-right: 20px;
+    }
+    &.aligncenter {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &.alignright {
+      float: right;
+      margin-left: 20px;
+    }
+  }
 }
