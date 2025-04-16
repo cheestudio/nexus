@@ -93,7 +93,8 @@ $browser-context: 16; // Default
   text-decoration: none;
   outline-color: #000;
   cursor: pointer; // in case this is applied to a <button> instead of an <a>
-
+	width: auto; // override styles introduced in 6.8 
+	height: auto; // override styles introduced in 6.8
   &:hover,
   &:focus-visible {
     --bg: color-mix(in srgb, var(--wp--preset--color--black), white 20%);
