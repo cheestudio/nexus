@@ -44,6 +44,9 @@ add_action('admin_init', 'CHEE_NAMESPACE\remove_menu_pages');
 // Custom admin CSS 
 add_action('admin_head', 'CHEE_NAMESPACE\custom_admin_css');
 
+// Replace "Howdy" in admin menu
+add_filter('admin_bar_menu', 'CHEE_NAMESPACE\replace_howdy', 9992);
+
 // Register Sidebars
 // add_action('widgets_init', 'CHEE_NAMESPACE\register_widget_sidebars');
 
@@ -228,22 +231,22 @@ function remove_from_admin_bar($wp_admin_bar) {
 }
 
 function reorder_admin_menu($__return_true) {
-  return [
-    'index.php',
-    'edit.php?post_type=page',
-    'edit.php',
-    // 'edit.php?post_type=POSTTYPE',
-    'separator1',
-    'themes.php',
-    // 'edit-comments.php', (de-registered below)
-    'users.php',
-    'upload.php',
-    'plugins.php',
-    'tools.php',
-    'admin.php?page=gf_edit_forms',
-    'options-general.php',
-    'separator2',
-  ];
+	return [
+		'index.php',
+		'edit.php?post_type=page',
+		'edit.php',
+		// 'edit.php?post_type=POSTTYPE',
+		'separator1',
+		'themes.php',
+		// 'edit-comments.php', (de-registered below)
+		'users.php',
+		'upload.php',
+		'plugins.php',
+		'tools.php',
+		'admin.php?page=gf_edit_forms',
+		'options-general.php',
+		'separator2',
+	];
 }
 
 function remove_menu_pages() {
@@ -251,7 +254,7 @@ function remove_menu_pages() {
 }
 
 function custom_admin_css() {
-  echo '<style>
+	echo '<style>
     #adminmenu li.wp-menu-separator {
     margin:10px 0 5px 0;
   }
@@ -275,3 +278,11 @@ function register_widget_sidebars() {
 	));
 }
 
+function replace_howdy($wp_admin_bar) {
+	$my_account = $wp_admin_bar->get_node('my-account');
+	$newtitle = str_replace('Howdy,', 'Logged in as', $my_account->title);
+	$wp_admin_bar->add_node(array(
+		'id' => 'my-account',
+		'title' => $newtitle,
+	));
+}
