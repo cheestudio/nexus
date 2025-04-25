@@ -124,7 +124,7 @@ function dequeue_jquery_migrate( $scripts ) {
 function theme_head_code() {
 	if (function_exists('get_field')) {
 		$head_code = get_field('head_code', 'option');
-		if (isset($head_code)) {
+		if (isset($head_code) && !is_user_logged_in()) {
 			echo $head_code;
 		}
 	}
@@ -133,7 +133,7 @@ function theme_head_code() {
 function theme_body_code() {
 	if (function_exists('get_field')) {
 		$body_code = get_field('body_code', 'option');
-		if (isset($body_code)) {
+		if (isset($body_code) && !is_user_logged_in()) {
 			echo $body_code;
 		}
 	}
@@ -142,7 +142,7 @@ function theme_body_code() {
 function theme_footer_code() {
 	if (function_exists('get_field')) {
 		$footer_code = get_field('footer_code', 'option');
-		if (isset($footer_code)) {
+		if (isset($footer_code) && !is_user_logged_in()) {
 			echo $footer_code;
 		}
 	}
