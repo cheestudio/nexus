@@ -86,6 +86,9 @@
     // Footer
     .gform_footer {
       margin: 0;
+      &:not(:has(.gform-button)) {
+        padding: 0;
+      }
       button {
         @include button;
         margin: 0;
