@@ -9,8 +9,6 @@
   // Global
   form {
     .gform-body {
-      padding-top: 25px;
-      padding-bottom: 25px;
       .gform_fields {
         grid-row-gap: 25px;
       }
@@ -88,8 +86,6 @@
     // Footer
     .gform_footer {
       margin: 0;
-      padding-top: 25px;
-      padding-bottom: 25px;
       button {
         @include button;
         margin: 0;
