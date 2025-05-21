@@ -1,6 +1,3 @@
-$context: "backend";
-@import "frontend";
-
 :where(.is-layout-flow, .is-layout-constrained) > p + p {
   margin-block-start: 1rem;
 }

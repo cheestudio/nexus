@@ -1,3 +1,7 @@
+@use "../lib/variables";
+@use "../lib/mixins";
+@use "../lib/queries";
+
 // Common
 
 header.masthead {
@@ -28,7 +32,7 @@ header.masthead {
 
 .menu-toggle {
   grid-area: button;
-  @include menu-toggle;
+  @include mixins.menu-toggle;
 }
 
 .site-navigation {
@@ -118,7 +122,7 @@ header.masthead {
 }
 
 // Desktop Nav
-@include for-size(tablet, up, offset) {
+@include queries.for-size(tablet, up, offset) {
   header.masthead {
     grid-template-columns: 1fr auto;
     grid-template-areas:
@@ -196,7 +200,7 @@ header.masthead {
 /* Mobile Nav
 ========================================================= */
 
-@include for-size(tablet) {
+@include queries.for-size(tablet) {
   header.masthead {
     position: sticky;
     top: 0;

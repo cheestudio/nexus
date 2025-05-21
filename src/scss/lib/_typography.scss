@@ -9,7 +9,7 @@ body {
 }
 p,
 li {
-  @extend %body-copy;
+  font-size: var(--wp--preset--font-size--body, 16px);
 }
 
 /* Headings
@@ -36,12 +36,12 @@ li {
 }
 
 // Detailed heading styles defined in presets.scss
-$headings: h1, h2, h3, h4, h5, h6;
-@each $heading in $headings {
-  #{$heading} {
-    @extend %#{$heading};
-  }
-}
+// $headings: h1, h2, h3, h4, h5, h6;
+// @each $heading in $headings {
+//   #{$heading} {
+//     @extend %#{$heading};
+//   }
+// }
 
 /* LINKS
 ========================================================= */
@@ -56,16 +56,6 @@ a {
   .vcard &[href^="mailto:"],
   .vcard &[href^="tel:"] {
     font-weight: inherit;
-  }
-}
-
-@if ($context == "backend") {
-  :where(p, .wp-block-list) a {
-    // STYLES
-  }
-
-  :where(.disable-link-styling) a {
-    // STYLES
   }
 }
 

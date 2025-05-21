@@ -1,0 +1,54 @@
+.mac-tabs {
+  // Editor-specific styles
+  
+  &__nav-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  &__remove-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin-left: 4px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    color: #666;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover, &:focus {
+      background-color: #f44336;
+      color: white;
+    }
+  }
+  
+  &__add-button {
+    button.components-button {
+      min-width: 30px;
+      padding: 0;
+      height: 30px;
+      margin-left: 0.75rem;
+    }
+  }
+  
+  &__content {
+    // Make all tab items visible in editor
+    .mac-tab-item {
+      display: none;
+      padding: 1rem;
+      border: 1px dashed #ddd;
+      margin-bottom: 1rem;
+      
+      &[data-active="true"] {
+        display: block;
+      }
+    }
+  }
+} 

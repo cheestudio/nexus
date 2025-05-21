@@ -1,3 +1,6 @@
+@use "variables";
+@use "mixins";
+
 /* Global Forms
 ========================================================= */
 
@@ -5,22 +8,19 @@ form {
   input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]),
   select,
   textarea {
-    @include trans($dur: 300);
-    @include formInputStyles;
+    @include mixins.trans($dur: 300);
+    @include mixins.formInputStyles;
     display: inline-block;
     border-style: solid;
     padding: 10px 15px;
     font-family: inherit;
     line-height: normal;
-    &:focus {
-      border-color: $border-color-active;
-    }
   }
   label, legend {
     font-weight: 700;
   }
   input[type="submit"],
   button {
-    @include button;
+    @include mixins.button;
   }
 }
