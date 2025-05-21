@@ -106,7 +106,7 @@
       ],
       "fontSizes": [
         {
-          "slug": "type-h1",
+          "slug": "h1",
           "size": "50px",
           "name": "H1",
           "fluid": {
@@ -114,7 +114,7 @@
           }
         },
         {
-          "slug": "type-h2",
+          "slug": "h2",
           "size": "40px",
           "name": "H2",
           "fluid": {
@@ -122,7 +122,7 @@
           }
         },
         {
-          "slug": "type-h3",
+          "slug": "h3",
           "size": "35px",
           "name": "H3",
           "fluid": {
@@ -130,7 +130,7 @@
           }
         },
         {
-          "slug": "type-h4",
+          "slug": "h4",
           "size": "30px",
           "name": "H4",
           "fluid": {
@@ -138,7 +138,7 @@
           }
         },
         {
-          "slug": "type-h5",
+          "slug": "h5",
           "size": "25px",
           "name": "H5",
           "fluid": {
@@ -146,7 +146,7 @@
           }
         },
         {
-          "slug": "type-h6",
+          "slug": "h6",
           "size": "20px",
           "name": "H6",
           "fluid": {
@@ -154,7 +154,7 @@
           }
         },
         {
-          "slug": "type-body",
+          "slug": "body",
           "size": "18px",
           "name": "Body",
           "fluid": {
@@ -162,12 +162,12 @@
           }
         },
         {
-          "slug": "type-body-small",
+          "slug": "body-small",
           "size": "14px",
           "name": "Body - Small"
         },
         {
-          "slug": "type-body-large",
+          "slug": "body-large",
           "size": "24px",
           "name": "Body - Large",
           "fluid": {

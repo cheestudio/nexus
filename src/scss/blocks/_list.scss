@@ -1,24 +1,16 @@
+@use "../lib/mixins";
+
 // note: .wp-block-list is the wrapper div manually added around core/list blocks
 
 .wp-block-list {
 	margin: 0;
 
 	:where(&) ul {
-		@include list-style;
+		@include mixins.list-style;
 	}
 
 	.has-icon li {
-		@include icon-list;
-	}
-}
-
-@if ($context == 'backend') {
-	ul.wp-block-list {
-		@include list-style;
-	}
-
-	.wp-block-list.has-icon li {
-		@include icon-list;
+		@include mixins.icon-list;
 	}
 }
 

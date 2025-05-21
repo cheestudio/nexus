@@ -1,6 +1,6 @@
-@import "../../src/scss/lib/queries";
-@import "../../src/scss/lib/variables";
-@import "../../src/scss/lib/mixins";
+@use "../../src/scss/lib/queries";
+@use "../../src/scss/lib/variables";
+@use "../../src/scss/lib/mixins";
 
 /* Custom Block Styles
 ========================================================= */
@@ -9,14 +9,14 @@ $class: ".hero-row";
 #{$class} {
 
   &.normal {
-    @include for-size(tablet, up, offset) {
+    @include queries.for-size(tablet, up, offset) {
       figure {
         margin-left: auto;
       }
     }
   }
   &.reverse {
-    @include for-size(tablet, up, offset) {
+    @include queries.for-size(tablet, up, offset) {
       .wrapper {
         flex-direction: row-reverse;
       }
@@ -30,14 +30,14 @@ $class: ".hero-row";
     align-items: center;
     // min-height: 100vh;
     gap: 100px;
-    @include for-size(tablet) {
+    @include queries.for-size(tablet) {
       flex-direction: column;
       justify-content: center;
     }
   }
 
   #{$class}--image {
-    @include for-size(tablet-sm, up, offset) {
+    @include queries.for-size(tablet-sm, up, offset) {
       flex: 0 1 50%;
     }
     figure {
@@ -46,7 +46,7 @@ $class: ".hero-row";
   }
 
   #{$class}--content {
-    @include for-size(tablet-sm, up, offset) {
+    @include queries.for-size(tablet-sm, up, offset) {
       flex: 0 1 50%;
     }
     .inner {

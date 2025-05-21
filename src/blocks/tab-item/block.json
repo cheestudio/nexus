@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"version": "1",
+	"name": "mac/tab-item",
+	"title": "Tab Item",
+	"category": "custom-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"supports": {
+		"inserter": false
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "",
+			"selector": ".mac-tab-item"
+		},
+		"icon": {
+			"type": "string",
+			"default": "",
+			"selector": ".mac-tab-item"
+		},
+		"iconColor": {
+			"type": "string",
+			"default": "",
+			"selector": ".mac-tab-item"
+		}
+	}
+} 

@@ -1,0 +1,108 @@
+.mac-tabs {
+  margin-bottom: toRem(24);
+
+  &__nav {
+    position: relative;
+    margin-bottom: toRem(16);
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  &__nav-item {
+    margin: 0;
+    
+    &.active .mac-tabs__nav-button {
+      color: var(--wp--preset--color--primary);
+      border-bottom-color: var(--wp--preset--color--primary);
+      background-color: rgba(var(--wp--preset--color--primary-rgb), 0.05);
+    }
+  }
+  
+  &__nav-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__nav-button {
+    display: inline-block;
+    padding: toRem(12) toRem(20);
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    color: inherit;
+    font-size: toRem(16);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover, &:focus {
+      outline: none;
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+  
+  // Remove button only visible in editor
+  &__remove-button {
+    display: none;
+  }
+
+  &__add-button {
+    align-self: center;
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  // Pills style
+  &.is-style-pills {
+    .mac-tabs__nav-list {
+      border-bottom: none;
+      gap: toRem(8);
+    }
+
+    .mac-tabs__nav-button {
+      border: 1px solid #ddd;
+      border-radius: toRem(32);
+      padding: toRem(8) toRem(20);
+    }
+
+    .mac-tabs__nav-item.active .mac-tabs__nav-button {
+      background-color: var(--wp--preset--color--primary);
+      color: white;
+      border-color: var(--wp--preset--color--primary);
+    }
+  }
+
+  // Underline style
+  &.is-style-underline {
+    .mac-tabs__nav-list {
+      border-bottom-width: 2px;
+    }
+
+    .mac-tabs__nav-button {
+      padding: toRem(8) toRem(16);
+      margin-right: toRem(24);
+      border-bottom-width: 2px;
+    }
+
+    .mac-tabs__nav-item.active .mac-tabs__nav-button {
+      background-color: transparent;
+    }
+  }
+}
+
+// Individual tab item (controlled by view.js)
+.mac-tab-item {
+  padding: toRem(16) 0;
+  &:focus {
+    outline: none;
+  }
+} 

@@ -1,0 +1,40 @@
+.mac-tab-item {
+  // Frontend styling handled by the parent tabs component
+  
+  &__icon {
+    margin-right: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  &__content {
+    // Ensure content has appropriate spacing
+    > * {
+      margin-top: 0;
+    }
+    
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  // Editor-only styles
+  &__inactive-notice {
+    display: none;
+    padding: 0.75rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    
+    p {
+      margin: 0;
+      font-style: italic;
+      font-size: 0.875rem;
+      color: #666;
+    }
+  }
+  
+  &__header {
+    display: none; // Hidden in frontend, only used in editor
+  }
+} 

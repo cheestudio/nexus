@@ -1,3 +1,7 @@
+@use "typography";
+@use "mixins";
+@use "queries";
+
 /* GLOBAL
 ========================================================= */
 body {
@@ -31,7 +35,7 @@ body {
   }
   [id] {
     scroll-margin-block-start: 130px;
-    @include for-size(tablet) {
+    @include queries.for-size(tablet) {
       scroll-margin-block-start: 70px;
     }
   }
@@ -54,7 +58,7 @@ body {
 .is-constrained-left {
   padding-left: var(--constrainer) !important;
   padding-right: 0 !important;
-  @include for-size(phone, up) {
+  @include queries.for-size(phone, up) {
     .kt-row-column-wrap {
       padding: 0 !important;
     }
@@ -64,7 +68,7 @@ body {
 .is-constrained-right {
   padding-right: var(--constrainer) !important;
   padding-left: 0 !important;
-  @include for-size(phone, up) {
+  @include queries.for-size(phone, up) {
     .kt-row-column-wrap {
       padding: 0 !important;
     }
