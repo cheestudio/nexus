@@ -1,3 +1,5 @@
+@use "sass:map";
+
 /* Responsive Queries
 ========================================================= */
 
@@ -17,8 +19,8 @@ $breakpoints: (
 ========================================================= */
 @mixin for-size($breakpoint, $direction: down, $offset: none) {
   // If the breakpoint exists in the map.
-  @if map-has-key($breakpoints, $breakpoint) {
-    $breakpoint-value: map-get($breakpoints, $breakpoint);
+  @if map.has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map.get($breakpoints, $breakpoint);
 
     // Optional: Offset by +/- 1 to avoid conflicts
     @if ($direction == down) and ($offset == none) {
@@ -58,10 +60,10 @@ $breakpoints: (
 ========================================================= */
 @mixin between-sizes($lower, $upper) {
   // If both the lower and upper breakpoints exist in the map
-  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+  @if map.has-key($breakpoints, $lower) and map.has-key($breakpoints, $upper) {
     // Get the lower and upper breakpoints
-    $lower-breakpoint: map-get($breakpoints, $lower);
-    $upper-breakpoint: map-get($breakpoints, $upper);
+    $lower-breakpoint: map.get($breakpoints, $lower);
+    $upper-breakpoint: map.get($breakpoints, $upper);
 
     // Write the media query
     @media only screen and (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint)) {

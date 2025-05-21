@@ -12,10 +12,11 @@ add_filter( 'block_categories_all', 'CHEE_NAMESPACE\add_custom_block_category' )
 /* Functions
 ========================================================= */
 function register_blocks() {
-	$blocks = glob(__DIR__ . '/../dist/blocks/*', GLOB_ONLYDIR);
-	foreach ($blocks as $block) {
-			register_block_type($block);
-	}
+	$blocksDir = wp_normalize_path( __DIR__ . '/../dist/blocks' );
+	wp_register_block_types_from_metadata_collection(
+		$blocksDir,
+		$blocksDir . '/blocks-manifest.php'
+	);
 }
 
 function add_custom_block_category( $categories ) {
