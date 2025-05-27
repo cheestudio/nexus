@@ -13,9 +13,10 @@ if (defined('ACF_KEY')) {
 
 // Register ACF options pages and subpages
 add_action('acf/init', 'CHEE_NAMESPACE\add_acf_options_pages');
+// Register ACF Blocks
+add_action('init', 'CHEE_NAMESPACE\register_acf_blocks', 5);
 
 // add_filter( 'acf/load_field/key=FIELD_KEY', 'CHEE_NAMESPACE\add_menus_as_acf_select_options' );
-
 
 function add_acf_options_pages() {
 	if (function_exists('acf_add_options_page')) {
@@ -28,6 +29,14 @@ function add_acf_options_pages() {
 			'position'    => '0.1',
 		));
 	}
+}
+
+function register_acf_blocks() {
+  define('BLOCKS_DIR', dirname(__FILE__, 2) . '/acf-blocks');
+  foreach (glob(BLOCKS_DIR . '/**/block.json') as $block_path) {
+    $block_json_path = basename(dirname($block_path));
+    register_block_type(BLOCKS_DIR . '/' . $block_json_path);
+  }
 }
 
 
