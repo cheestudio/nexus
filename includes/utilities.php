@@ -1,3 +1,3 @@
 <?php
 
-namespace CHEE_NAMESPACE;
+namespace CHEENAMESPACE;

@@ -1,6 +1,6 @@
 <?php
 
-namespace CHEE_NAMESPACE;
+namespace CHEENAMESPACE;
 
 /* ACF Key (defined in wp-config.php)
 ========================================================= */
@@ -12,11 +12,11 @@ if (defined('ACF_KEY')) {
 ========================================================= */
 
 // Register ACF options pages and subpages
-add_action('acf/init', 'CHEE_NAMESPACE\add_acf_options_pages');
+add_action('acf/init', 'CHEENAMESPACE\add_acf_options_pages');
 // Register ACF Blocks
-add_action('init', 'CHEE_NAMESPACE\register_acf_blocks', 5);
+add_action('init', 'CHEENAMESPACE\register_acf_blocks', 5);
 
-// add_filter( 'acf/load_field/key=FIELD_KEY', 'CHEE_NAMESPACE\add_menus_as_acf_select_options' );
+// add_filter( 'acf/load_field/key=FIELD_KEY', 'CHEENAMESPACE\add_menus_as_acf_select_options' );
 
 function add_acf_options_pages() {
 	if (function_exists('acf_add_options_page')) {

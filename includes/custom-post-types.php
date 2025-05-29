@@ -1,9 +1,9 @@
 <?php
 
-namespace CHEE_NAMESPACE;
+namespace CHEENAMESPACE;
 
 // Register Resource Post Type
-// add_action( 'init', 'CHEE_NAMESPACE\resource_post_type', 0 );
+// add_action( 'init', 'CHEENAMESPACE\resource_post_type', 0 );
 
 
 /* Functions

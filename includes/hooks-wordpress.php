@@ -1,29 +1,29 @@
 <?php
 
-namespace CHEE_NAMESPACE;
+namespace CHEENAMESPACE;
 
 /* Init
 ========================================================= */
 
 // Setup
-add_action('after_setup_theme', 'CHEE_NAMESPACE\setup');
+add_action('after_setup_theme', 'CHEENAMESPACE\setup');
 
 // Admin Bar tidy
-add_action('admin_bar_menu', 'CHEE_NAMESPACE\remove_from_admin_bar', 999);
+add_action('admin_bar_menu', 'CHEENAMESPACE\remove_from_admin_bar', 999);
 
 // Remove comments metaboxes from posts and pages
-add_action('init', 'CHEE_NAMESPACE\remove_post_support_comments');
+add_action('init', 'CHEENAMESPACE\remove_post_support_comments');
 
 // Add a pingback url auto-discovery header for single posts, pages, or attachments
-add_action('wp_head', 'CHEE_NAMESPACE\pingback_header');
+add_action('wp_head', 'CHEENAMESPACE\pingback_header');
 
 // Disable emojis
-add_action('init', 'CHEE_NAMESPACE\disable_emojis');
+add_action('init', 'CHEENAMESPACE\disable_emojis');
 
 // Customize WP login page
-add_action('login_head', 'CHEE_NAMESPACE\login_headerlogo');
-add_filter('login_headerurl', 'CHEE_NAMESPACE\login_headerurl');
-add_filter('login_headertext', 'CHEE_NAMESPACE\login_headertext');
+add_action('login_head', 'CHEENAMESPACE\login_headerlogo');
+add_filter('login_headerurl', 'CHEENAMESPACE\login_headerurl');
+add_filter('login_headertext', 'CHEENAMESPACE\login_headertext');
 
 // Don't load core/remote patterns
 add_filter('should_load_remote_block_patterns', '__return_false');
@@ -32,23 +32,23 @@ add_filter('should_load_remote_block_patterns', '__return_false');
 add_filter('styles_inline_size_limit', '__return_zero');
 
 // Reduce auto-generated excerpt length from the default 55 words
-add_filter('excerpt_length', 'CHEE_NAMESPACE\customize_excerpt_length');
+add_filter('excerpt_length', 'CHEENAMESPACE\customize_excerpt_length');
 
 // Reorder admin menu
-add_filter('custom_menu_order', 'CHEE_NAMESPACE\reorder_admin_menu');
-add_filter('menu_order', 'CHEE_NAMESPACE\reorder_admin_menu');
+add_filter('custom_menu_order', 'CHEENAMESPACE\reorder_admin_menu');
+add_filter('menu_order', 'CHEENAMESPACE\reorder_admin_menu');
 
 // Remove dashboard menu pages
-add_action('admin_init', 'CHEE_NAMESPACE\remove_menu_pages');
+add_action('admin_init', 'CHEENAMESPACE\remove_menu_pages');
 
 // Custom admin CSS 
-add_action('admin_head', 'CHEE_NAMESPACE\custom_admin_css');
+add_action('admin_head', 'CHEENAMESPACE\custom_admin_css');
 
 // Replace "Howdy" in admin menu
-add_filter('admin_bar_menu', 'CHEE_NAMESPACE\replace_howdy', 9992);
+add_filter('admin_bar_menu', 'CHEENAMESPACE\replace_howdy', 9992);
 
 // Register Sidebars
-// add_action('widgets_init', 'CHEE_NAMESPACE\register_widget_sidebars');
+// add_action('widgets_init', 'CHEENAMESPACE\register_widget_sidebars');
 
 
 /* Functions
@@ -157,8 +157,8 @@ function disable_emojis() {
 	remove_filter('the_content_feed', 'wp_staticize_emoji');
 	remove_filter('comment_text_rss', 'wp_staticize_emoji');
 	remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
-	add_filter('tiny_mce_plugins', 'CHEE_NAMESPACE\disable_emojis_tinymce');
-	add_filter('wp_resource_hints', 'CHEE_NAMESPACE\disable_emojis_remove_dns_prefetch', 10, 2);
+	add_filter('tiny_mce_plugins', 'CHEENAMESPACE\disable_emojis_tinymce');
+	add_filter('wp_resource_hints', 'CHEENAMESPACE\disable_emojis_remove_dns_prefetch', 10, 2);
 }
 
 function disable_emojis_tinymce($plugins) {

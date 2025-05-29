@@ -1,4 +1,4 @@
-.mac-tabs {
+.chee-tabs {
   margin-bottom: toRem(24);
 
   &__nav {
@@ -18,7 +18,7 @@
   &__nav-item {
     margin: 0;
     
-    &.active .mac-tabs__nav-button {
+    &.active .chee-tabs__nav-button {
       color: var(--wp--preset--color--primary);
       border-bottom-color: var(--wp--preset--color--primary);
       background-color: rgba(var(--wp--preset--color--primary-rgb), 0.05);
@@ -63,18 +63,18 @@
 
   // Pills style
   &.is-style-pills {
-    .mac-tabs__nav-list {
+    .chee-tabs__nav-list {
       border-bottom: none;
       gap: toRem(8);
     }
 
-    .mac-tabs__nav-button {
+    .chee-tabs__nav-button {
       border: 1px solid #ddd;
       border-radius: toRem(32);
       padding: toRem(8) toRem(20);
     }
 
-    .mac-tabs__nav-item.active .mac-tabs__nav-button {
+    .chee-tabs__nav-item.active .chee-tabs__nav-button {
       background-color: var(--wp--preset--color--primary);
       color: white;
       border-color: var(--wp--preset--color--primary);
@@ -83,24 +83,24 @@
 
   // Underline style
   &.is-style-underline {
-    .mac-tabs__nav-list {
+    .chee-tabs__nav-list {
       border-bottom-width: 2px;
     }
 
-    .mac-tabs__nav-button {
+    .chee-tabs__nav-button {
       padding: toRem(8) toRem(16);
       margin-right: toRem(24);
       border-bottom-width: 2px;
     }
 
-    .mac-tabs__nav-item.active .mac-tabs__nav-button {
+    .chee-tabs__nav-item.active .chee-tabs__nav-button {
       background-color: transparent;
     }
   }
 }
 
 // Individual tab item (controlled by view.js)
-.mac-tab-item {
+.chee-tab-item {
   padding: toRem(16) 0;
   &:focus {
     outline: none;

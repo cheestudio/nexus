@@ -2,9 +2,9 @@
 
 // custom walker to insert markup before/around submenus
 
-namespace CHEE_NAMESPACE;
+namespace CHEENAMESPACE;
 
-class CHEE_NAMESPACE_Walker_Nav_Menu extends \Walker_Nav_Menu {
+class CHEENAMESPACE_Walker_Nav_Menu extends \Walker_Nav_Menu {
 	function __construct() {
 		// store the current menu item in a global var, so we can use it in start_lvl()
 		add_filter( 'nav_menu_item_title', function ( $title, $menu_item ) {

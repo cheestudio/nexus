@@ -1,12 +1,12 @@
 <?php
 
-namespace CHEE_NAMESPACE;
+namespace CHEENAMESPACE;
 
 // Register React blocks
-add_action( 'init', 'CHEE_NAMESPACE\register_blocks' );
+add_action( 'init', 'CHEENAMESPACE\register_blocks' );
 
 // Add Custom Block Category
-add_filter( 'block_categories_all', 'CHEE_NAMESPACE\add_custom_block_category' );
+add_filter( 'block_categories_all', 'CHEENAMESPACE\add_custom_block_category' );
 
 
 /* Functions

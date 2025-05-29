@@ -1,26 +1,26 @@
 <?php
 
-namespace CHEE_NAMESPACE;
+namespace CHEENAMESPACE;
 
 // Customize default block templates by post type
-// add_action( 'init', 'CHEE_NAMESPACE\customize_page_post_type' );
-// add_action( 'init', 'CHEE_NAMESPACE\customize_post_post_type' );
+// add_action( 'init', 'CHEENAMESPACE\customize_page_post_type' );
+// add_action( 'init', 'CHEENAMESPACE\customize_post_post_type' );
 
 // Add custom classes to the body class
-add_filter('body_class', 'CHEE_NAMESPACE\post_name_in_body_class');
+add_filter('body_class', 'CHEENAMESPACE\post_name_in_body_class');
 
 // Add custom image sizes
-add_action('after_setup_theme', 'CHEE_NAMESPACE\register_custom_image_sizes');
-add_filter('image_size_names_choose', 'CHEE_NAMESPACE\add_custom_image_sizes_to_editor');
+add_action('after_setup_theme', 'CHEENAMESPACE\register_custom_image_sizes');
+add_filter('image_size_names_choose', 'CHEENAMESPACE\add_custom_image_sizes_to_editor');
 
 // Removes the unused IDs
 add_filter('nav_menu_item_id', '__return_false');
 
 // Image blocks fall back to alt text from the media library
-add_filter( 'render_block', 'CHEE_NAMESPACE\img_block_alt_fallback', 10, 2 );
+add_filter( 'render_block', 'CHEENAMESPACE\img_block_alt_fallback', 10, 2 );
 
 // Add a wrapper around core/list output, so we can style it without affecting other lists
-// add_filter( 'render_block_core/list', 'CHEE_NAMESPACE\add_wrapper_around_core_list_block' );
+// add_filter( 'render_block_core/list', 'CHEENAMESPACE\add_wrapper_around_core_list_block' );
 
 
 /* Functions
@@ -59,7 +59,7 @@ function customize_page_post_type() {
 	global $wp_post_types;
 	$wp_post_types['page']->template = array(
 		array(
-			'CHEE_NAMESPACE/header'
+			'CHEENAMESPACE/header'
 		),
 		array(
 			'core/paragraph',

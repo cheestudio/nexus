@@ -1,29 +1,29 @@
 <?php
 
-namespace CHEE_NAMESPACE;
+namespace CHEENAMESPACE;
 
 // styles/scripts for the frontend
-add_action( 'wp_enqueue_scripts', 'CHEE_NAMESPACE\enqueue_frontend', 20 );
+add_action( 'wp_enqueue_scripts', 'CHEENAMESPACE\enqueue_frontend', 20 );
 
 // styles/scripts for the frontend and the entire (not just the editor) backend edit page
-add_action( 'wp_head', 'CHEE_NAMESPACE\render_gfont_preconnect', 1 );
-add_action( 'enqueue_block_assets', 'CHEE_NAMESPACE\enqueue_frontend_and_backend' );
+add_action( 'wp_head', 'CHEENAMESPACE\render_gfont_preconnect', 1 );
+add_action( 'enqueue_block_assets', 'CHEENAMESPACE\enqueue_frontend_and_backend' );
 
 // styles/scripts for the block editor
-add_action( 'enqueue_block_editor_assets', 'CHEE_NAMESPACE\enqueue_backend_js' );
-add_action( 'after_setup_theme', 'CHEE_NAMESPACE\enqueue_backend_css' );
+add_action( 'enqueue_block_editor_assets', 'CHEENAMESPACE\enqueue_backend_js' );
+add_action( 'after_setup_theme', 'CHEENAMESPACE\enqueue_backend_css' );
 
 // get rid of jquery migrate (currently the only reason jquery is used is because of the Google Language Translator plugin...)
-add_action( 'wp_default_scripts', 'CHEE_NAMESPACE\dequeue_jquery_migrate' );
+add_action( 'wp_default_scripts', 'CHEENAMESPACE\dequeue_jquery_migrate' );
 
 // Add custom head code
-add_action('wp_head', 'CHEE_NAMESPACE\theme_head_code');
+add_action('wp_head', 'CHEENAMESPACE\theme_head_code');
 
 // Add custom body code
-add_action('wp_body_open', 'CHEE_NAMESPACE\theme_body_code');
+add_action('wp_body_open', 'CHEENAMESPACE\theme_body_code');
 
 // Add custom footer code
-add_action('wp_footer', 'CHEE_NAMESPACE\theme_footer_code');
+add_action('wp_footer', 'CHEENAMESPACE\theme_footer_code');
 
 /* Functions
 ========================================================= */
@@ -83,7 +83,7 @@ function enqueue_backend_js() {
 	}
 
 	wp_enqueue_script(
-		'CHEE_NAMESPACE-backend',
+		'CHEENAMESPACE-backend',
 		get_stylesheet_directory_uri() . '/dist/backend/backend.js',
 		$dependencies,
 		$version
@@ -96,8 +96,8 @@ function enqueue_frontend() {
 	$dependencies = array( 'global-styles', 'gfonts' );
 
 	// theme
-	wp_enqueue_style( 'CHEE_NAMESPACE', get_stylesheet_directory_uri() . '/dist/css/frontend' . $min . '.css', $dependencies, $version );
-	wp_enqueue_script( 'CHEE_NAMESPACE', get_stylesheet_directory_uri() . '/dist/js/frontend' . $min . '.js', array(), $version, true );
+	wp_enqueue_style( 'CHEENAMESPACE', get_stylesheet_directory_uri() . '/dist/css/frontend' . $min . '.css', $dependencies, $version );
+	wp_enqueue_script( 'CHEENAMESPACE', get_stylesheet_directory_uri() . '/dist/js/frontend' . $min . '.js', array(), $version, true );
 
 }
 

@@ -2,8 +2,8 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"version": "1",
-	"name": "mac/tabs",
-	"title": "mac Tabs",
+  "name": "chee/tabs",
+	"title": "Chee Tabs",
 	"category": "custom-blocks",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
@@ -13,22 +13,22 @@
 		"tabStyle": {
 			"type": "string",
 			"default": "normal",
-			"selector": ".mac-tabs"
+			"selector": ".chee-tabs"
 		},
 		"backgroundColor": {
 			"type": "string",
 			"default": "",
-			"selector": ".mac-tabs"
+			"selector": ".chee-tabs"
 		},
 		"textColor": {
 			"type": "string",
 			"default": "",
-			"selector": ".mac-tabs"
+			"selector": ".chee-tabs"
 		},
 		"activeTabIndex": {
 			"type": "number",
 			"default": 0,
-			"selector": ".mac-tabs"
+			"selector": ".chee-tabs"
 		}
 	}
 } 

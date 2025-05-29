@@ -1,6 +1,6 @@
 <?php
 
-namespace CHEE_NAMESPACE;
+namespace CHEENAMESPACE;
 
 if (!class_exists('ACF')) {
 	echo 'To use this theme, please install and activate the Advanced Custom Fields PRO plugin.';

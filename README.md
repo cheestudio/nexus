@@ -5,7 +5,7 @@ Custom WordPress blocks-centric starter theme w/sass, terser and BrowserSync
 **Usage**
 
 1. Navigate to /src/ and run `npm install`
-2. Find/Replace all CHEE_NAMESPACE instances with appropriate namespace (e.g. `namespace MYNAMESPACE`)
+2. Find/Replace all CHEENAMESPACE instances with appropriate namespace (e.g. `namespace MYNAMESPACE`)
 3. Update BrowserSync host, port and proxy in `src/webpack.config.js`
 4. From /src/ directory, run `npm run build` or `npm run watch` or `npm run dev`
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace CHEE_NAMESPACE;
+namespace CHEENAMESPACE;
 
 $has_primary_nav = has_nav_menu('primary_nav');
 $has_secondary_nav = has_nav_menu('secondary_nav');
@@ -21,7 +21,7 @@ $has_secondary_nav = has_nav_menu('secondary_nav');
 	<?php wp_body_open(); ?>
 
 	<!-- Accessibility Skip to Content -->
-	<a class="skip-link screen-reader-text" href="#top-of-content"><?php esc_html_e('Skip to content', 'CHEE_NAMESPACE'); ?></a>
+	<a class="skip-link screen-reader-text" href="#top-of-content"><?php esc_html_e('Skip to content', 'CHEENAMESPACE'); ?></a>
 
 		<header id="masthead" class="masthead">
 
@@ -31,7 +31,7 @@ $has_secondary_nav = has_nav_menu('secondary_nav');
 
 			<button aria-controls="site-navigation" id="primary-menu-toggle" class="menu-toggle">
 				<span class="bars"></span>
-				<span class="screen-reader-text"><?php _e("Menu", 'CHEE_NAMESPACE'); ?></span>
+				<span class="screen-reader-text"><?php _e("Menu", 'CHEENAMESPACE'); ?></span>
 			</button>
 
 			<!-- <div aria-controls="site-navigation" class="site-navigation__close-click-outside" aria-hidden="true"></div> -->
@@ -45,7 +45,7 @@ $has_secondary_nav = has_nav_menu('secondary_nav');
 									'theme_location' => 'primary_nav',
 									'container'      => 'nav',
 									'menu_class'     => 'header-menu header-menu-primary',
-									'walker'         => new CHEE_NAMESPACE_Walker_Nav_Menu()
+									'walker'         => new CHEENAMESPACE_Walker_Nav_Menu()
 								)
 							);
 							?>

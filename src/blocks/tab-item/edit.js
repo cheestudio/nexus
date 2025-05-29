@@ -7,7 +7,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	
 	const { parentClientId, activeTabIndex } = useSelect(select => {
 		const { getBlockParentsByBlockName, getBlockAttributes } = select('core/block-editor');
-		const parentClientIds = getBlockParentsByBlockName(clientId, 'mac/tabs');
+		const parentClientIds = getBlockParentsByBlockName(clientId, 'chee/tabs');
 		const parentClientId = parentClientIds[0];
 		
 		if (!parentClientId) {
@@ -33,7 +33,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	const isActive = tabIndex === activeTabIndex;
 
 	const blockProps = useBlockProps({
-		className: 'mac-tab-item',
+		className: 'chee-tab-item',
 		'data-title': title || 'Untitled Tab',
 		'data-active': isActive
 	});
@@ -42,20 +42,20 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		<>
 			<div {...blockProps}>
 				{!isActive && (
-					<div className="mac-tab-item__inactive-notice">
-						<p>{__("Tab inactive. Click on the tab above to edit this content.", "mac")}</p>
+					<div className="chee-tab-item__inactive-notice">
+						<p>{__("Tab inactive. Click on the tab above to edit this content.", "chee")}</p>
 					</div>
 				)}
-				<div className="mac-tab-item__header">
+				<div className="chee-tab-item__header">
 					<RichText
 						tagName="span"
-						className="mac-tab-item__title"
+						className="chee-tab-item__title"
 						value={title}
 						onChange={(newTitle) => setAttributes({ title: newTitle })}
-						placeholder={__("Tab Title", "mac")}
+						placeholder={__("Tab Title", "chee")}
 					/>
 				</div>
-				<div className="mac-tab-item__content">
+				<div className="chee-tab-item__content">
 					<InnerBlocks
 						renderAppender={InnerBlocks.ButtonBlockAppender}
 					/>

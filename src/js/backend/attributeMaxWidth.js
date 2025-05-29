@@ -7,7 +7,7 @@ const applicableBlocks = ['core/paragraph', 'core/heading'];
 
 addFilter(
 	'blocks.registerBlockType',
-	'CHEE_NAMESPACE/max-width/add-attribute',
+	'chee/max-width/add-attribute',
 	( settings, name ) => {
 		if ( !applicableBlocks.includes( name ) ) {
 			return settings;
@@ -28,7 +28,7 @@ addFilter(
 
 addFilter(
 	'editor.BlockEdit',
-	'CHEE_NAMESPACE/max-width/add-control',
+	'chee/max-width/add-control',
 	( BlockEdit ) => {
 		return ( props ) => {
 			const {name, attributes, setAttributes, isSelected} = props;
@@ -61,7 +61,7 @@ addFilter(
 // render on the backend
 addFilter(
 	'editor.BlockListBlock',
-	'CHEE_NAMESPACE/max-width/render-backend',
+	'chee/max-width/render-backend',
 	createHigherOrderComponent( ( BlockListBlock ) => {
 		return ( props ) => {
 			const {name, attributes} = props;
@@ -74,13 +74,13 @@ addFilter(
 				{...props}
 				wrapperProps={{style: {maxWidth: attributes.maxWidth}}}/>;
 		};
-	}, 'cheeMaxWidthAttribute' )
+	}, 'macMaxWidthAttribute' )
 );
 
 // render on the frontend
 addFilter(
 	'blocks.getSaveContent.extraProps',
-	'CHEE_NAMESPACE/max-width/render-frontend',
+	'chee/max-width/render-frontend',
 	( props, blockType, attributes ) => {
 		if ( !applicableBlocks.includes( blockType.name ) || !attributes.maxWidth ) {
 			return props;

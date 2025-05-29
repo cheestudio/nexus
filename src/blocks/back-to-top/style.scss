@@ -1,7 +1,7 @@
-@import "../../scss/lib/queries";
-@import "../../scss/lib/mixins";
+@use "../../scss/lib/queries";
+@use "../../scss/lib/mixins";
 
-.wp-block-chee-namespace-back-to-top {
+.chee-back-to-top {
   position: fixed;
   bottom: 20px;
   right: 20px;

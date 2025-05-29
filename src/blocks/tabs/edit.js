@@ -10,13 +10,13 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	const wpData = wp.data.select("core/block-editor");
 	const colorPalette = wpData.getSettings().colors;
 	const blockProps = useBlockProps({
-		className: `mac-tabs ${tabStyle}`,
+		className: `chee-tabs ${tabStyle}`,
 		style: { backgroundColor, color: textColor }
 	});
 
-	const ALLOWED_BLOCKS = ['mac/tab-item'];
+	const ALLOWED_BLOCKS = ['chee/tab-item'];
 	const TEMPLATE = [
-		['mac/tab-item', { title: 'Tab 1' }]
+		['chee/tab-item', { title: 'Tab 1' }]
 	];
 
 
@@ -37,7 +37,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	function insertTabBlock() {
 		const innerCount = select("core/editor").getBlocksByClientId(clientId)[0].innerBlocks.length;
 		const newTabNumber = innerCount + 1;
-		let block = createBlock("mac/tab-item", { title: `Tab ${newTabNumber}` });
+		let block = createBlock("chee/tab-item", { title: `Tab ${newTabNumber}` });
 		dispatch("core/block-editor").insertBlock(block, innerCount, clientId);
 		setAttributes({ activeTabIndex: innerCount });
 	}
@@ -78,10 +78,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 						onChange={(newStyle) => setAttributes({ tabStyle: newStyle })}
 					/>
 				</PanelBody>
-				<PanelBody title={__("Color Settings", "mac")} initialOpen={false}>
+				<PanelBody title={__("Color Settings", "chee")} initialOpen={false}>
 					<BaseControl>
 						<div className="color-picker-container">
-							<BaseControl.VisualLabel>{__("Background Color", "mac")}</BaseControl.VisualLabel>
+							<BaseControl.VisualLabel>{__("Background Color", "chee")}</BaseControl.VisualLabel>
 							<ColorPalette
 								colors={colorPalette}
 								disableCustomColors={true}
@@ -92,7 +92,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					</BaseControl>
 					<BaseControl>
 						<div className="color-picker-container">
-							<BaseControl.VisualLabel>{__("Text Color", "mac")}</BaseControl.VisualLabel>
+							<BaseControl.VisualLabel>{__("Text Color", "chee")}</BaseControl.VisualLabel>
 							<ColorPalette
 								colors={colorPalette}
 								disableCustomColors={true}
@@ -106,31 +106,31 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
 			{/* Tab Navigation */}
 			{tabTitles.length > 0 && (
-				<div className="mac-tabs__nav">
-					<ul className="mac-tabs__nav-list" role="tablist">
+				<div className="chee-tabs__nav">
+					<ul className="chee-tabs__nav-list" role="tablist">
 						{tabTitles.map((title, index) => (
 							<li
 								key={index}
-								className={`mac-tabs__nav-item ${index === activeTabIndex ? 'active' : ''}`}
+								className={`chee-tabs__nav-item ${index === activeTabIndex ? 'active' : ''}`}
 								role="presentation"
 							>
-								<div className="mac-tabs__nav-wrapper">
+								<div className="chee-tabs__nav-wrapper">
 									<button
-										className="mac-tabs__nav-button"
+										className="chee-tabs__nav-button"
 										role="tab"
 										aria-selected={index === activeTabIndex}
-										aria-controls={`mac-tab-${clientId}-${index}`}
+										aria-controls={`chee-tab-${clientId}-${index}`}
 										tabIndex={index === activeTabIndex ? 0 : -1}
 										onClick={() => handleTabSelect(index)}
 									>
 										{title}
 									</button>
 									{tabTitles.length > 1 && (
-										<Tooltip text={__("Remove tab", "mac")}>
+										<Tooltip text={__("Remove tab", "chee")}>
 											<button
-												className="mac-tabs__remove-button"
+												className="chee-tabs__remove-button"
 												onClick={() => removeTabBlock(index)}
-												aria-label={__("Remove tab", "mac")}
+												aria-label={__("Remove tab", "chee")}
 											>
 												×
 											</button>
@@ -139,19 +139,19 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 								</div>
 							</li>
 						))}
-						<li className="mac-tabs__nav-item mac-tabs__add-button">
+						<li className="chee-tabs__nav-item chee-tabs__add-button">
 							<Button
 								variant="secondary"
 								onClick={insertTabBlock}
 								icon="plus"
-								aria-label={__("Add new tab", "mac")}
+								aria-label={__("Add new tab", "chee")}
 							/>
 						</li>
 					</ul>
 				</div>
 			)}
 
-			<div className="mac-tabs__content">
+			<div className="chee-tabs__content">
 				<InnerBlocks
 					allowedBlocks={ALLOWED_BLOCKS}
 					template={TEMPLATE}

@@ -4,13 +4,13 @@ export default function Save({ attributes }) {
 	const { title } = attributes;
 	
 	const blockProps = useBlockProps.save({
-		className: 'mac-tab-item',
+		className: 'chee-tab-item',
 		'data-title': title || '',
 	});
 
 	return (
 		<div {...blockProps}>
-			<div className="mac-tab-item__content">
+			<div className="chee-tab-item__content">
 				<InnerBlocks.Content />
 			</div>
 		</div>

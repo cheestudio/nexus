@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"version": "1",
-	"name": "chee-namespace/back-to-top",
+	"name": "chee/back-to-top",
 	"title": "Back to Top",
 	"category": "custom-blocks",
 	"example": {},

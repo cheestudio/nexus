@@ -1,7 +1,7 @@
 import 'what-input';
 import hoverintent from 'hoverintent'
 
-const CHEE_NAMESPACE_theme = (
+const CHEENAMESPACE_theme = (
 	() => {
 		'use strict'
 
@@ -202,4 +202,4 @@ const CHEE_NAMESPACE_theme = (
 	}
 )();
 
-CHEE_NAMESPACE_theme.init()
+CHEENAMESPACE_theme.init()

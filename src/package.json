@@ -28,10 +28,10 @@
 		"dev": "npm-run-all -p build watch"
 	},
 	"devDependencies": {
-		"@rollup/plugin-commonjs": "^25.0.7",
-		"@rollup/plugin-legacy": "^3.0",
-		"@rollup/plugin-node-resolve": "^15.2",
-		"@rollup/plugin-terser": "^0.4",
+		"@rollup/plugin-commonjs": "^28.0.2",
+		"@rollup/plugin-legacy": "^3.0.2",
+		"@rollup/plugin-node-resolve": "^16.0.0",
+		"@rollup/plugin-terser": "^0.4.4",
 		"@wordpress/scripts": "^30.15.0",
 		"chokidar-cli": "^3.0",
 		"hoverintent": "^2.2",

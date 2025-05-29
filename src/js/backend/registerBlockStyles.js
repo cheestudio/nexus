@@ -1,36 +1,45 @@
-wp.domReady(() => {
-  // BUTTON(S) BLOCK
-  wp.blocks.unregisterBlockStyle("core/button", ["fill", "outline"]);
-  wp.blocks.registerBlockStyle("core/button", {
-    name: "primary",
-    label: "Primary",
-    isDefault: true,
-  });
-  wp.blocks.registerBlockStyle("core/button", {
-    name: "secondary",
-    label: "Secondary",
-  });
-  wp.blocks.registerBlockStyle("core/button", {
-    name: "tertiary",
-    label: "Tertiary",
-  });
+wp.domReady( () => {
 
-  // PARAGRAPH BLOCK
-  // wp.blocks.registerBlockStyle( 'core/paragraph', {
-  // 	name: 'large',
-  // 	label: 'Large'
-  // } );
+	// BUTTON(S) BLOCK
+	wp.blocks.unregisterBlockStyle(
+		'core/button',
+		['fill', 'outline']
+	);
+	wp.blocks.registerBlockStyle( 'core/button', {
+		name: 'primary',
+		label: 'Primary',
+		isDefault: true 
+	} ); 
+	wp.blocks.registerBlockStyle( 'core/button', {
+		name: 'secondary',
+		label: 'Secondary',
+	} );
+	wp.blocks.registerBlockStyle( 'core/button', {
+		name: 'tertiary',
+		label: 'Tertiary',
+	} );
 
-  // SEPARATOR BLOCK
-  wp.blocks.unregisterBlockStyle("core/separator", ["dots", "wide"]);
-  wp.blocks.registerBlockStyle("core/separator", {
-    name: "alt",
-    label: "Alternate",
-  });
+	// PARAGRAPH BLOCK
+	wp.blocks.registerBlockStyle( 'core/paragraph', {
+		name: 'large',
+		label: 'Large'
+	} );
 
-  // LIST BLOCK
-  wp.blocks.registerBlockStyle("core/list", {
-    name: "two-col",
-    label: "Two Column",
-  });
-});
+	// SEPARATOR BLOCK
+	wp.blocks.unregisterBlockStyle(
+		'core/separator',
+		['dots', 'wide']
+	);
+	wp.blocks.registerBlockStyle( 'core/separator', {
+		name: 'alt',
+		label: 'Alternate'
+	} );
+
+	// LIST BLOCK
+	wp.blocks.registerBlockStyle( 'core/list', {
+		name: 'two-col',
+		label: 'Two Column'
+	} );
+
+
+} )

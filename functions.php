@@ -1,20 +1,5 @@
 <?php
 
-if ( ! class_exists( 'ACF' ) ) {
-	add_action( 'admin_notices', function () {
-		?>
-		<div class="notice notice-warning is-dismissible">
-			<p>To use this theme, please install and activate the Advanced Custom Fields PRO plugin.</p>
-		</div>
-		<?php
-	} );
-
-	return;
-}
-
-// init ACF builder (optional)
-// require get_template_directory() . '/includes/acf-builder.php';
-
 // hooks for general WordPress
 require get_template_directory() . '/includes/hooks-wordpress.php';
 
