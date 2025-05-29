@@ -2,7 +2,6 @@ import {BlockEdit, InspectorControls} from '@wordpress/block-editor';
 import {PanelBody, RangeControl} from '@wordpress/components';
 import {addFilter} from '@wordpress/hooks';
 
-const {createHigherOrderComponent} = wp.compose;
 const applicableBlocks = ['core/paragraph', 'core/heading'];
 
 addFilter(
@@ -62,7 +61,7 @@ addFilter(
 addFilter(
 	'editor.BlockListBlock',
 	'chee/max-width/render-backend',
-	createHigherOrderComponent( ( BlockListBlock ) => {
+	( BlockListBlock ) => {
 		return ( props ) => {
 			const {name, attributes} = props;
 
@@ -74,8 +73,7 @@ addFilter(
 				{...props}
 				wrapperProps={{style: {maxWidth: attributes.maxWidth}}}/>;
 		};
-	}, 'macMaxWidthAttribute' )
-);
+	});
 
 // render on the frontend
 addFilter(
