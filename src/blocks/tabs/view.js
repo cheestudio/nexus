@@ -1,4 +1,4 @@
-const macTabs = () => {
+const cheeTabs = () => {
   const tabsContainers = document.querySelectorAll('.chee-tabs');
 
   tabsContainers.forEach((tabsContainer) => {
@@ -106,4 +106,4 @@ const macTabs = () => {
   }
 };
 
-document.addEventListener('DOMContentLoaded', macTabs); 
+document.addEventListener('DOMContentLoaded', cheeTabs); 
