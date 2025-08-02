@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .wp-block-button__link, button {
 	@include button;
 }
@@ -8,4 +9,19 @@
 
 .is-style-tertiary .wp-block-button__link {
 	@include button-tertiary;
+=======
+@use "../lib/mixins" as *;
+
+.wp-block-button__link,
+button {
+  @include button;
+}
+
+.is-style-secondary .wp-block-button__link {
+  @include button-secondary;
+}
+
+.is-style-tertiary .wp-block-button__link {
+  @include button-tertiary;
+>>>>>>> Stashed changes
 }

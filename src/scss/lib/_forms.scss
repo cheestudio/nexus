@@ -1,3 +1,9 @@
+<<<<<<< Updated upstream
+=======
+@use "variables" as *;
+@use "mixins" as *;
+
+>>>>>>> Stashed changes
 /* Global Forms
 ========================================================= */
 
@@ -16,7 +22,8 @@ form {
       border-color: $border-color-active;
     }
   }
-  label, legend {
+  label,
+  legend {
     font-weight: 700;
   }
   input[type="submit"],

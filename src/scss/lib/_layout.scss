@@ -1,3 +1,10 @@
+<<<<<<< Updated upstream
+=======
+@use "typography" as *;
+@use "mixins" as *;
+@use "queries" as *;
+
+>>>>>>> Stashed changes
 /* GLOBAL
 ========================================================= */
 body {
@@ -26,6 +33,7 @@ body {
 // transitions & WCAG
 
 @media (prefers-reduced-motion: no-preference) {
+<<<<<<< Updated upstream
 	html {
 		scroll-behavior: smooth;
 	}
@@ -35,6 +43,17 @@ body {
 			scroll-margin-block-start: 70px;
 		}
 	}
+=======
+  html {
+    scroll-behavior: smooth;
+  }
+  [id] {
+    scroll-margin-block-start: 130px;
+    @include for-size(tablet) {
+      scroll-margin-block-start: 70px;
+    }
+  }
+>>>>>>> Stashed changes
 }
 
 @media screen and (prefers-reduced-motion: reduce), (update: slow) {
@@ -52,6 +71,7 @@ body {
 
 // Half-Contained Content Rows
 .is-constrained-left {
+<<<<<<< Updated upstream
 	padding-left: var(--constrainer) !important;
 	padding-right: 0 !important;
 	@include for-size(phone, up) {
@@ -69,4 +89,39 @@ body {
 			padding: 0 !important;
 		}
 	}
+=======
+  padding-left: var(--constrainer) !important;
+  padding-right: 0 !important;
+  @include for-size(phone, up) {
+    .kt-row-column-wrap {
+      padding: 0 !important;
+    }
+  }
+}
+
+.is-constrained-right {
+  padding-right: var(--constrainer) !important;
+  padding-left: 0 !important;
+  @include for-size(phone, up) {
+    .kt-row-column-wrap {
+      padding: 0 !important;
+    }
+  }
+}
+
+// inherit WP native image alignment
+.wp-block-image {
+  &.alignleft {
+    float: left;
+    margin-right: 20px;
+  }
+  &.aligncenter {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &.alignright {
+    float: right;
+    margin-left: 20px;
+  }
+>>>>>>> Stashed changes
 }

@@ -1,5 +1,10 @@
+<<<<<<< Updated upstream
 @import "../../scss/lib/queries";
 @import "../../scss/lib/mixins";
+=======
+@use "../../scss/lib/queries" as *;
+@use "../../scss/lib/mixins" as *;
+>>>>>>> Stashed changes
 
 .wp-block-chee-namespace-back-to-top {
   position: fixed;

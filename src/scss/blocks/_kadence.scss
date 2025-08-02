@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:src/scss/blocks/_kadence.scss
 /* Animations (reduce movement)
 ========================================================= */
 body {
@@ -17,6 +18,11 @@ body {
     transform: translate3d(25px, 0, 0);
   }
 }
+=======
+@use "../lib/variables" as *;
+@use "../lib/mixins" as *;
+@use "../lib/queries" as *;
+>>>>>>> Stashed changes:src/scss/blocks/_kadence-blocks.scss
 
 /* Accordions
 ========================================================= */

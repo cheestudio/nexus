@@ -1,13 +1,18 @@
+<<<<<<< Updated upstream
 @import "../../src/scss/lib/queries";
 @import "../../src/scss/lib/variables";
 @import "../../src/scss/lib/mixins";
+=======
+@use "../../src/scss/lib/queries" as *;
+@use "../../src/scss/lib/variables" as *;
+@use "../../src/scss/lib/mixins" as *;
+>>>>>>> Stashed changes
 
 /* Custom Block Styles
 ========================================================= */
 $class: ".hero-row";
 
 #{$class} {
-
   &.normal {
     @include for-size(tablet, up, offset) {
       figure {

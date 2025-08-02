@@ -1,3 +1,9 @@
+<<<<<<< Updated upstream
+=======
+@use "../lib/variables" as *;
+@use "../lib/mixins" as *;
+
+>>>>>>> Stashed changes
 /* Gravity Form
 ========================================================= */
 .gform_wrapper.gravity-theme {
@@ -21,7 +27,8 @@
         .gfield_required {
           color: $border-color-error;
         }
-        &--type-sub, &--type-inline {
+        &--type-sub,
+        &--type-inline {
           font-weight: 400;
         }
       }

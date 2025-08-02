@@ -1,0 +1,97 @@
+@use "sass:map";
+@use "queries" as *;
+
+$config: (
+  context: "frontend",
+) !default;
+
+/* Show/Hide Block Functionality
+========================================================= */
+
+@if map.get($config, "context") == "frontend" {
+  .hide-desktop {
+    @include for-size(tablet, up) {
+      display: none !important;
+    }
+  }
+
+  .hide-tablet {
+    @include between-sizes(tablet-sm, desktop) {
+      display: none !important;
+    }
+  }
+
+  .hide-mobile {
+    @include for-size(phone) {
+      display: none !important;
+    }
+  }
+}
+
+@if map.get($config, "context") == "backend" {
+  .hide-desktop,
+  .hide-tablet,
+  .hide-mobile {
+    position: relative;
+    &:before {
+      position: absolute;
+      top: -10px;
+      left: 0;
+      width: auto;
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 5px;
+      opacity: 0.85;
+      z-index: 10000;
+    }
+  }
+  .hide-desktop {
+    position: relative;
+    &:before {
+      content: "Hidden on Desktop";
+    }
+  }
+
+  .hide-tablet {
+    &:before {
+      content: "Hidden on Tablet";
+    }
+  }
+
+  .hide-mobile {
+    &:before {
+      content: "Hidden on Mobile";
+    }
+  }
+  :is(.hide-tablet.hide-desktop) {
+    &:before {
+      content: "Hidden for > Tablet";
+    }
+  }
+  :is(.hide-mobile.hide-desktop) {
+    &:before {
+      content: "Hidden for Mobile + Desktop";
+    }
+  }
+  :is(.hide-tablet.hide-mobile) {
+    &:before {
+      content: "Hidden for < Tablet";
+    }
+  }
+  :is(.hide-desktop.hide-tablet.hide-mobile) {
+    filter: grayscale(1);
+    opacity: 0.5;
+    * {
+      pointer-events: none;
+    }
+    &:before {
+      content: "Disabled";
+      opacity: 1;
+      border: 1px solid white;
+    }
+  }
+}
