@@ -1,14 +1,14 @@
-@use "../lib/mixins";
+@use "../lib/mixins" as *;
 
 .wp-block-button__link,
 button {
-  @include mixins.button;
+  @include button;
 }
 
 .is-style-secondary .wp-block-button__link {
-	@include mixins.button-secondary;
+  @include button-secondary;
 }
 
 .is-style-tertiary .wp-block-button__link {
-	@include mixins.button-tertiary;
+  @include button-tertiary;
 }

@@ -1,5 +1,5 @@
-@use "../../scss/lib/queries";
-@use "../../scss/lib/mixins";
+@use "../../scss/lib/queries" as *;
+@use "../../scss/lib/mixins" as *;
 
 .chee-back-to-top {
   position: fixed;

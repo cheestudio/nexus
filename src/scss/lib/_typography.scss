@@ -1,3 +1,6 @@
+@use "variables" as *;
+@use "mixins" as *;
+
 /* GLOBAL
 ========================================================= */
 body {
@@ -12,7 +15,7 @@ li {
   font-size: var(--wp--preset--font-size--body, 16px);
 }
 
-/* Headings
+/* HEADINGS
 ========================================================= */
 
 // COLOR
