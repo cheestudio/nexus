@@ -75,6 +75,13 @@ header.masthead {
     > li {
       flex-grow: 1;
       position: relative;
+      &.current-menu-item,
+      &.current-menu-parent,
+      &.current-menu-ancestor {
+        > a {
+          color: var(--hoverColor);
+        }
+      }
       &.menu-item-has-children {
         > a {
           gap: 10px;
@@ -109,6 +116,11 @@ header.masthead {
     li {
       a {
         padding: toRem(8) var(--linkPadding);
+      }
+      &.current-menu-item {
+        > a {
+          color: var(--hoverColor);
+        }
       }
     }
   }
