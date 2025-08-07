@@ -1,0 +1,14 @@
+@use "../../scss/lib/queries" as *;
+@use "../../scss/lib/mixins" as *;
+
+.example-grid-item-block {
+  text-align: center;
+
+  img {
+    @include margin-center;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 50%;
+  }
+}
