@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "version": "1",
+  "name": "chee/example-image-carousel",
+  "title": "Image Gallery Carousel",
+  "description": "",
+  "category": "custom-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": ["file:./style-index.css", "swiper-css"],
+  "viewScript": ["file:./view.js", "swiper-js"],
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": true
+    }
+  },
+  "attributes": {
+    "images": {
+      "type": "array"
+    }
+  }
+}

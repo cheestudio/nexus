@@ -1,0 +1,35 @@
+.example-image-carousel-block {
+  text-align: center; // center button
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .image-container {
+    flex: 0 1 calc(33.33% - 20px);
+    position: relative;
+  }
+  img {
+    display: block;
+    width: 100%;
+  }
+  .remove-item {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    .dashicons {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+  }
+  .components-button {
+    margin-top: 20px;
+  }
+}
