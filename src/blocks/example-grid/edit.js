@@ -1,14 +1,15 @@
-import {useBlockProps, InnerBlocks} from "@wordpress/block-editor";
-import {createBlock} from "@wordpress/blocks";
-import {dispatch, select} from "@wordpress/data";
-import {Button} from "@wordpress/components";
 import {useEffect} from "react";
+import {useBlockProps, InnerBlocks} from "@wordpress/block-editor";
+import {useAppendBlock} from "../../js/lib/useAppendBlock";
+import {Button} from "@wordpress/components";
 import {__} from "@wordpress/i18n";
 
 const ALLOWED_BLOCKS = ["chee/example-grid-item-block"];
 const TEMPLATE = [["chee/example-grid-item-block"]];
 
 export default function Edit({attributes, setAttributes, clientId}) {
+
+  const appendBlock = useAppendBlock(clientId, "chee/example-grid-item-block");
   const {blockId} = attributes;
   const blockProps = useBlockProps({
     className: "example-grid-block",
@@ -19,12 +20,7 @@ export default function Edit({attributes, setAttributes, clientId}) {
       setAttributes({blockId: clientId});
     }
   }, [clientId]);
-
-  function insertButtonBlock() {
-    const innerCount = select("core/editor").getBlocksByClientId(clientId)[0].innerBlocks.length;
-    let block = createBlock("chee/example-grid-item-block");
-    dispatch("core/block-editor").insertBlock(block, innerCount, clientId);
-  }
+  
 
   return (
     <div {...blockProps}>
@@ -34,7 +30,7 @@ export default function Edit({attributes, setAttributes, clientId}) {
         renderAppender={() => (
           <Button
             variant="primary"
-            onClick={insertButtonBlock}
+            onClick={appendBlock}
           >
             Add Grid Item
           </Button>

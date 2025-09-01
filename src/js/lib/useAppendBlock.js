@@ -4,12 +4,13 @@
 import { createBlock } from "@wordpress/blocks";
 import { dispatch, select } from "@wordpress/data";
 
-export const useAppendBlock = ({ clientId, block }) => {
+export const useAppendBlock = (clientId, block) => {
   const appendBlock = () => {
-    const 
-    innerBlocksLength = select("core/editor").getBlocksByClientId(clientId)[0].innerBlocks.length,
-    blockSelection = createBlock(block),
-    disatchedBlock = dispatch("core/block-editor").insertBlock(blockSelection, innerBlocksLength, clientId);
+    if (!block) return;
+    const
+      innerBlocksLength = select("core/editor").getBlocksByClientId(clientId)[0].innerBlocks.length,
+      blockSelection = createBlock(block),
+      disatchedBlock = dispatch("core/block-editor").insertBlock(blockSelection, innerBlocksLength, clientId);
     return disatchedBlock;
   }
   return appendBlock;
