@@ -1,4 +1,4 @@
-import {BlockEdit, InspectorControls} from '@wordpress/block-editor';
+import {InspectorControls} from '@wordpress/block-editor';
 import {PanelBody, RangeControl} from '@wordpress/components';
 import {addFilter} from '@wordpress/hooks';
 
@@ -6,7 +6,7 @@ const applicableBlocks = ['core/paragraph', 'core/heading'];
 
 addFilter(
 	'blocks.registerBlockType',
-	'chee/max-width/add-attribute',
+	'mac/max-width/add-attribute',
 	( settings, name ) => {
 		if ( !applicableBlocks.includes( name ) ) {
 			return settings;
@@ -27,7 +27,7 @@ addFilter(
 
 addFilter(
 	'editor.BlockEdit',
-	'chee/max-width/add-control',
+	'mac/max-width/add-control',
 	( BlockEdit ) => {
 		return ( props ) => {
 			const {name, attributes, setAttributes, isSelected} = props;
@@ -60,7 +60,7 @@ addFilter(
 // render on the backend
 addFilter(
 	'editor.BlockListBlock',
-	'chee/max-width/render-backend',
+	'mac/max-width/render-backend',
 	( BlockListBlock ) => {
 		return ( props ) => {
 			const {name, attributes} = props;
@@ -73,12 +73,13 @@ addFilter(
 				{...props}
 				wrapperProps={{style: {maxWidth: attributes.maxWidth}}}/>;
 		};
-	});
+	}
+);
 
 // render on the frontend
 addFilter(
 	'blocks.getSaveContent.extraProps',
-	'chee/max-width/render-frontend',
+	'mac/max-width/render-frontend',
 	( props, blockType, attributes ) => {
 		if ( !applicableBlocks.includes( blockType.name ) || !attributes.maxWidth ) {
 			return props;
