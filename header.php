@@ -44,6 +44,7 @@ $has_secondary_nav = has_nav_menu('secondary_nav');
 								array(
 									'theme_location' => 'primary_nav',
 									'container'      => 'nav',
+									'container_class' => 'chee-nav-element',
 									'menu_class'     => 'header-menu header-menu-primary',
 									'walker'         => new CHEENAMESPACE_Walker_Nav_Menu()
 								)
@@ -58,7 +59,9 @@ $has_secondary_nav = has_nav_menu('secondary_nav');
 								array(
 									'theme_location'  => 'secondary_nav',
 									'container'       => 'nav',
+									'container_class' => 'chee-nav-element',
 									'menu_class'      => 'header-menu header-menu-secondary',
+									'walker'         => new CHEENAMESPACE_Walker_Nav_Menu()
 								)
 							);
 							?>
