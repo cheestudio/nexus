@@ -47,6 +47,8 @@ add_action('admin_head', 'CHEENAMESPACE\custom_admin_css');
 // Replace "Howdy" in admin menu
 add_filter('admin_bar_menu', 'CHEENAMESPACE\replace_howdy', 9992);
 
+add_filter('rest_endpoints', 'CHEENAMESPACE\unset_rest_endpoints');
+
 // Register Sidebars
 // add_action('widgets_init', 'CHEENAMESPACE\register_widget_sidebars');
 
@@ -284,4 +286,20 @@ function replace_howdy($wp_admin_bar) {
 		'id' => 'my-account',
 		'title' => $newtitle,
 	));
+}
+
+
+
+function unset_rest_endpoints($endpoints) {
+	$toRemove = ['users', 'comments']; // add to unset other endpoints
+	foreach ($toRemove as $val) {
+		if (isset($endpoints['/wp/v2/' . $val])) {
+			unset($endpoints['/wp/v2/' . $val]);
+		}
+
+		if (isset($endpoints['/wp/v2/' . $val . '/(?P<id>[\d]+)'])) {
+			unset($endpoints['/wp/v2/' . $val . '/(?P<id>[\d]+)']);
+		}
+	}
+	return $endpoints;
 }
