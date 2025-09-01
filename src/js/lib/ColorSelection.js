@@ -25,13 +25,13 @@ const handleTextColorChange = (newColor) => {
 };
 
 <ColorSelection
-  label={__("Background Color", "evcc")}
+  label={__("Background Color", "chee")}
   colorValue={backgroundColor}
   onColorChange={handleBackgroundColorChange}
 />
 
 <ColorSelection
-  label={__("Text Color", "evcc")}
+  label={__("Text Color", "chee")}
   colorValue={textColor}
   onColorChange={handleTextColorChange}
 />
