@@ -92,10 +92,9 @@ function login_headerlogo() {
 			}
 
 			#login h1 a {
-				background: url(<?php echo $logo_url ?>) center no-repeat;
-				background-size: contain auto;
+				background: url(<?= esc_url($logo_url); ?>) center/cover no-repeat;
 				width: min(100%, 340px);
-				height: 100px;
+				height: 120px;
 				margin: 0;
 			}
 

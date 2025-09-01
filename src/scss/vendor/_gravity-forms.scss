@@ -1,5 +1,5 @@
-@use "../lib/variables";
-@use "../lib/mixins";
+@use "../lib/variables" as *;
+@use "../lib/mixins" as *;
 
 /* Gravity Form
 ========================================================= */
@@ -20,9 +20,10 @@
         margin-bottom: 6px;
         font-size: toRem(15);
         .gfield_required {
-          color: mixins.$border-color-error;
+          color: $border-color-error;
         }
-        &--type-sub, &--type-inline {
+        &--type-sub,
+        &--type-inline {
           font-weight: 400;
         }
       }
@@ -93,7 +94,7 @@
         padding: 0;
       }
       button {
-        @include mixins.button;
+        @include button;
         margin: 0;
       }
     }
@@ -115,7 +116,7 @@
       font-family: var(--wp--preset--font-family--body);
       font-size: toRem(16);
       font-style: italic;
-      color: mixins.$border-color-error;
+      color: $border-color-error;
       text-align: center;
     }
   }
@@ -125,10 +126,10 @@
     textarea,
     legend,
     label {
-      color: mixins.$border-color-error;
-      border-color: mixins.$border-color-error;
-      @include mixins.placeholder {
-        color: mixins.$border-color-error;
+      color: $border-color-error;
+      border-color: $border-color-error;
+      @include placeholder {
+        color: $border-color-error;
       }
     }
   }

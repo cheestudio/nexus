@@ -1,0 +1,10 @@
+@use "../../scss/lib/queries" as *;
+@use "../../scss/lib/mixins" as *;
+
+.example-grid-block {
+  .grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,34 +1,19 @@
 /* Accordions
 ========================================================= */
 .wp-block-kadence-accordion {
-  border-bottom: 1px solid var(--wp--preset--color--tan);
 }
 
 .kt-blocks-accordion-header {
   cursor: pointer;
-  font-weight: 600 !important;
 
   &.kt-accordion-panel-active {
-    border-top-color: var(--wp--preset--color--yellow) !important;
   }
 }
 
 .kt-accordion-panel-active {
-  border-bottom: 1px solid var(--wp--preset--color--yellow);
-  position: relative;
-  z-index: 1;
-  margin-bottom: -1px;
 }
 
 .kt-blocks-accordion-icon-trigger {
-  width: 25px;
-  height: 25px;
-
-  .kt-blocks-accordion-header:hover & {
-    background: var(--wp--preset--color--soft-yellow);
-    border-radius: 2px;
-  }
-
   // inflate specificity
   .kt-blocks-accordion-header &::after,
   .kt-blocks-accordion-header &::before {

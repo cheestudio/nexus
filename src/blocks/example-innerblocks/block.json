@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "version": "1",
+  "name": "chee/example-innerblocks",
+  "title": "Example Inner Blocks",
+  "description": "",
+  "category": "custom-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": true
+    }
+  }
+}

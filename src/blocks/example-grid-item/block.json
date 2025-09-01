@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "version": "1",
+  "name": "chee/example-grid-item-block",
+  "title": "Example Grid Item Block",
+  "description": "",
+  "category": "custom-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "supports": {
+    "inserter": false,
+    "html": false,
+    "spacing": {
+      "margin": false
+    }
+  },
+  "attributes": {
+    "imageObject": {
+      "type": "object",
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}

@@ -1,27 +1,30 @@
 $config: (
-  context: 'frontend'
+  context: "frontend",
 ) !default;
 
-@use "lib/queries" ;
-@use "lib/variables" ;
-@use "lib/mixins" ;
-@use "lib/sanitize" ;
-@use "lib/typography" ;
-@use "lib/layout" ;
-@use "lib/forms" ;
-@use "lib/print" ;
-@use "lib/visibility" with ($config: $config);
+@use "lib/queries";
+@use "lib/variables";
+@use "lib/mixins";
+@use "lib/sanitize";
+@use "lib/typography";
+// @use "lib/presets";
+@use "lib/layout";
+@use "lib/forms";
+@use "lib/print";
+@use "lib/visibility" with (
+  $config: $config
+);
 
-@use "global/footer" ;
-@use "global/header" ;
+@use "global/footer";
+@use "global/header";
 
-@use "blocks/buttons" ;
-@use "blocks/group" ;
-@use "blocks/list" ;
-@use "blocks/separator" ;
-@use "blocks/table" ;
-@use "blocks/kadence-blocks" ;
-@use "blocks/misc" ;
+@use "blocks/buttons";
+@use "blocks/group";
+@use "blocks/list";
+@use "blocks/separator";
+@use "blocks/table";
+@use "blocks/kadence-blocks";
+@use "blocks/misc";
 
-@use "vendor/gravity-forms" ;
-@use "vendor/kadence" ;
+@use "vendor/gravity-forms";
+@use "vendor/kadence";

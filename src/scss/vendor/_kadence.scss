@@ -20,3 +20,25 @@ body {
     transform: translate3d(25px, 0, 0);
   }
 }
+
+// spacing
+:root {
+  --global-kb-spacing-xxs: 10px;
+  --global-kb-spacing-xs: 20px;
+  --global-kb-spacing-sm: 25px;
+  --global-kb-spacing-md: 30px;
+  --global-kb-spacing-lg: 40px;
+  --global-kb-spacing-xl: 50px;
+  --global-kb-spacing-xxl: 75px;
+  --global-kb-spacing-3xl: 100px;
+  --global-kb-spacing-4xl: 125px;
+  --global-kb-spacing-5xl: 150px;
+
+  // gutter (grid)
+  --global-row-gutter-sm: 20px;
+  --global-kb-gap-sm: 20px;
+  --global-row-gutter-md: 40px;
+  --global-kb-gap-md: 40px;
+  --global-row-gutter-lg: 60px;
+  --global-kb-gap-lg: 60px;
+}

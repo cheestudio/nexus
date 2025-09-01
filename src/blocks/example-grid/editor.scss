@@ -1,0 +1,13 @@
+// copy grid layout here (for editor only)
+.example-grid-block {
+  .block-editor-block-list__layout {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .block-list-appender {
+    position: static;
+    text-align: center;
+    grid-column: 1 / -1;
+  }
+}

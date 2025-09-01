@@ -1,0 +1,14 @@
+@use "../../scss/lib/queries" as *;
+@use "../../scss/lib/mixins" as *;
+
+.example-image-carousel-block {
+  .swiper-slide {
+    width: auto;
+  }
+  img {
+    display: block;
+    object-fit: cover;
+    // height: 300px;
+    // width: auto;
+  }
+}

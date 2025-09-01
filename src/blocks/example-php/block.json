@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "version": "1",
+  "name": "chee/example-php",
+  "title": "Example PHP Render Block",
+  "description": "",
+  "category": "custom-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": true
+    }
+  },
+  "attributes": {
+    "NAME": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}
