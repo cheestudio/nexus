@@ -21,14 +21,14 @@
       "defaultSpacingSizes": false,
       "spacingSizes": [
         {
-          "size": "5px",
-          "slug": "5",
-          "name": "5px"
-        },
-        {
           "size": "10px",
           "slug": "10",
           "name": "10px"
+        },
+        {
+          "size": "15px",
+          "slug": "15",
+          "name": "15px"
         },
         {
           "size": "20px",
@@ -36,19 +36,54 @@
           "name": "20px"
         },
         {
-          "size": "40px",
+          "size": "25px",
+          "slug": "25",
+          "name": "25px"
+        },
+        {
+          "size": "30px",
+          "slug": "30",
+          "name": "30px"
+        },
+        {
+          "size": "var(--spacing40)",
           "slug": "40",
           "name": "40px"
         },
         {
-          "size": "80px",
+          "size": "var(--spacing50)",
+          "slug": "50",
+          "name": "50px"
+        },
+        {
+          "size": "var(--spacing60)",
+          "slug": "60",
+          "name": "60px"
+        },
+        {
+          "size": "var(--spacing70)",
+          "slug": "70",
+          "name": "70px"
+        },
+        {
+          "size": "var(--spacing80)",
           "slug": "80",
           "name": "80px"
         },
         {
-          "size": "160px",
-          "slug": "160",
-          "name": "160px"
+          "size": "var(--spacing90)",
+          "slug": "90",
+          "name": "90px"
+        },
+        {
+          "size": "var(--spacing100)",
+          "slug": "100",
+          "name": "100px"
+        },
+        {
+          "size": "var(--spacing150)",
+          "slug": "150",
+          "name": "150px"
         }
       ]
     },

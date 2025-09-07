@@ -7,6 +7,17 @@
 	--wide-constrainer: max(20px, calc((100vw - var(--wide-content)) / 2));
 }
 
+// fluid spacing
+:root {
+	--spacing40: #{resize(30, 40, 480, 1600)};
+	--spacing50: #{resize(50, 50, 480, 1600)};
+	--spacing60: #{resize(50, 60, 480, 1600)};
+	--spacing70: #{resize(50, 70, 480, 1600)};
+	--spacing80: #{resize(50, 80, 480, 1600)};
+	--spacing90: #{resize(60, 90, 480, 1600)};
+	--spacing100: #{resize(70, 100, 480, 1600)};
+	--spacing150: #{resize(80, 150, 480, 1600)};
+}
 
 /* ICONS
 ========================================================= */
