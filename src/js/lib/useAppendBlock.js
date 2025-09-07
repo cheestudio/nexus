@@ -1,5 +1,5 @@
 // Custom hook for manually appending a block
-// Usage: const appendBlock = useAppendBlock({ clientId, 'namespace/blockname' });
+// Usage: const appendBlock = useAppendBlock(clientId, 'namespace/blockname');
 
 import { createBlock } from "@wordpress/blocks";
 import { dispatch, select } from "@wordpress/data";
