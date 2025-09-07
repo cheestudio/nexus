@@ -69,4 +69,18 @@ $has_secondary_nav = has_nav_menu('secondary_nav');
 					<?php } ?>
 				</div>
 			<?php } ?>
+			<div class="header-search-container">
+				<div class="header-search-toggle">
+					<span class="screen-reader-text"><?php _e("Search", 'via'); ?></span>
+					<button class="button-reset" aria-label="Search" aria-controls="header-search-form"><span class="fas fa-search"></span></button>
+					<div class="tooltip">
+						<kbd>⌘</kbd> + <kbd>K</kbd>
+					</div>
+				</div>
+				<div id="header-search-form" aria-hidden="true">
+					<div class="container">
+						<?php get_search_form(); ?>
+					</div>
+				</div>
+			</div>
 		</header>

@@ -9,9 +9,10 @@ header.masthead {
   --linkPadding: #{toRem(15)};
   --dropdownColor: #f5f5f5;
   --hoverColor: #ccc;
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-areas: "logo button";
+  grid-template-columns: 1fr 1fr auto;
+  grid-template-areas: "search logo button";
   align-items: center;
 }
 
@@ -47,7 +48,6 @@ header.masthead {
 .menu-secondary-menu-container {
   grid-area: secondary;
   background-color: var(--dropdownColor);
-  padding-right: var(--constrainer);
 }
 
 .header-menu-container {
@@ -136,10 +136,10 @@ header.masthead {
 // Desktop Nav
 @include for-size(tablet, up, offset) {
   header.masthead {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
     grid-template-areas:
-      "secondary secondary"
-      "logo primary";
+      "secondary secondary search"
+      "logo primary primary";
   }
 
   .menu-toggle {
@@ -283,5 +283,104 @@ header.masthead {
       padding-top: toRem(10);
       padding-bottom: toRem(10);
     }
+  }
+}
+
+// search
+
+
+.header-search-container {
+  background-color: var(--dropdownColor);
+  grid-area: search;
+  padding-right: var(--constrainer);
+  .header-search-toggle {
+    position: relative;
+    z-index: 10;
+  }
+  button {
+    color: #fff;
+    font-size: toRem(18);
+    background: transparent !important;
+    &:hover,
+    &:focus {
+      + .tooltip {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  .tooltip {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 100%;
+    opacity: 0;
+    visibility: hidden;
+    width: 100px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    @include trans;
+    @include for-size(tablet) {
+      display: none;
+    }
+    kbd {
+      background: rgba(255, 255, 255, 0.1);
+      padding: toRem(4) toRem(8);
+      border-radius: toRem(4);
+      font-size: toRem(13);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-weight: 600;
+    }
+  }
+}
+
+
+.search-form {
+  position: relative;
+}
+
+#header-search-form {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(white, 0.9);
+  padding: toRem(20) 0;
+  transition: 200ms ease-in-out;
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 900px;
+    max-width: 90%;
+    margin: 0 auto;
+    display: block;
+  }
+  input {
+    width: 100%;
+    display: block;
+    color: var(--wp--preset--color--black);
+    font-size: toRem(18);
+    padding: toRem(10) toRem(40);
+  }
+  .search-button {
+    position: absolute;
+    z-index: 100;
+    right: 20px;
+    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--wp--preset--color--red);
+    font-size: toRem(20);
+    background: var(--icon-search);
+  }
+  &[aria-hidden="false"] {
+    transform: translateY(0);
   }
 }

@@ -32,6 +32,8 @@ const CHEENAMESPACE_theme = (
 			// Functions to initialize late
 			helloWorldLate();
 			initNavigation();
+			accessibleLinkCards();
+			headerSearchToggle();
 		}
 
 		const helloWorldEarly = () => {
@@ -184,6 +186,85 @@ const CHEENAMESPACE_theme = (
 				toggleAriaOnSubmenus();
 			});
 		}
+
+		/* Header Search Toggle
+		========================================================= */
+		const headerSearchToggle = () => {
+			const searchToggleButton = document.querySelector('.header-search-toggle button');
+			const searchAgainButton = document.querySelector('.external-search-trigger');
+			const searchForm = document.querySelector('#header-search-form');
+			const searchInput = searchForm?.querySelector('input[type="text"]');
+			if (!searchToggleButton || !searchForm) return;
+
+			const openSearchForm = () => {
+				searchForm.setAttribute('aria-hidden', 'false');
+				searchForm.style.display = 'block';
+				searchForm.style.opacity = '0';
+				searchForm.style.transform = 'translateY(10px)';
+				requestAnimationFrame(() => {
+					searchForm.style.opacity = '1';
+					searchForm.style.transform = 'translateY(0)';
+				});
+
+				setTimeout(() => {
+					searchInput.focus();
+				}, 300);
+			};
+
+			const closeSearchForm = () => {
+				searchForm.style.opacity = '0';
+				searchForm.style.transform = 'translateY(10px)';
+				searchInput.value = '';
+				setTimeout(() => {
+					searchForm.style.display = 'none';
+					searchForm.setAttribute('aria-hidden', 'true');
+				}, 300);
+			};
+
+			const handleToggleClick = (e) => {
+				e.preventDefault();
+				const isHidden = searchForm.getAttribute('aria-hidden') === 'true';
+				if (isHidden) {
+					openSearchForm();
+				} else {
+					closeSearchForm();
+				}
+			};
+
+			const handleDocumentClick = (event) => {
+				const isClickInside = searchForm.contains(event.target) || searchToggleButton.contains(event.target);
+				if (!isClickInside) {
+					closeSearchForm();
+				}
+			};
+
+			const handleEscKeydown = (event) => {
+				if (event.key === 'Escape') {
+					closeSearchForm();
+				}
+			};
+
+			const handleKeyboardShortcut = (event) => {
+				if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+					event.preventDefault();
+					const isHidden = searchForm.getAttribute('aria-hidden') === 'true';
+					if (isHidden) {
+						openSearchForm();
+					} else {
+						closeSearchForm();
+					}
+				}
+			};
+
+			document.addEventListener('keydown', handleKeyboardShortcut);
+			searchToggleButton.addEventListener('click', handleToggleClick);
+			document.addEventListener('click', handleDocumentClick);
+			document.addEventListener('keydown', handleEscKeydown);
+			if (searchAgainButton) {
+				searchAgainButton.addEventListener('click', handleToggleClick);
+			}
+
+		};
 
 			// Enables links for cards and other elements that need the entire element to be clickable
 			const accessibleLinkCards = () => {
