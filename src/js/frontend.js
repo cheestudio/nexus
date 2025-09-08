@@ -44,6 +44,7 @@ const CHEENAMESPACE_theme = (
 			console.log('Hello World Late');
 		}
 
+
 		const initNavigation = () => {
 			const navInstances = document.querySelectorAll('.chee-nav-element');
 			if (!navInstances.length) return;
@@ -59,18 +60,30 @@ const CHEENAMESPACE_theme = (
 				const toggleAriaOnSubmenus = ($elt = null) => {
 					$dropdownItems.forEach(item => {
 						const $submenu = item.querySelector('.dropdown');
-						item.setAttribute('aria-expanded', 'false');
+						const $dropdownToggle = item.querySelector('.dropdown-toggle');
+						if ($dropdownToggle) {
+							$dropdownToggle.setAttribute('aria-expanded', 'false');
+						} else {
+							item.setAttribute('aria-expanded', 'false');
+						}
 						if ($submenu) {
 							$submenu.setAttribute('aria-hidden', 'true');
 							$submenu.setAttribute('inert', '');
 						}
 					});
 					if ($elt) {
-						$elt.setAttribute('aria-expanded', 'true');
+						const $dropdownToggle = $elt.querySelector('.dropdown-toggle');
+						if ($dropdownToggle) {
+							$dropdownToggle.setAttribute('aria-expanded', 'true');
+						} else {
+							$elt.setAttribute('aria-expanded', 'true');
+						}
 						const $submenu = $elt.querySelector('.dropdown');
 						if ($submenu) {
 							$submenu.removeAttribute('inert');
-							$submenu.setAttribute('aria-hidden', 'false');
+							setTimeout(() => {
+								$submenu.setAttribute('aria-hidden', 'false');
+							}, 1);
 						}
 					}
 				};
@@ -93,7 +106,12 @@ const CHEENAMESPACE_theme = (
 					if (closest) {
 						closest.classList.remove('hover');
 						if (!closest.classList.contains('clicked')) {
-							closest.setAttribute('aria-expanded', 'false');
+							const $dropdownToggle = closest.querySelector('.dropdown-toggle');
+							if ($dropdownToggle) {
+								$dropdownToggle.setAttribute('aria-expanded', 'false');
+							} else {
+								closest.setAttribute('aria-expanded', 'false');
+							}
 							const submenu = closest.querySelector('.dropdown');
 							if (submenu) {
 								submenu.setAttribute('inert', '');
@@ -103,11 +121,15 @@ const CHEENAMESPACE_theme = (
 					}
 				};
 
-				const clickHandler = (e) => {
-					if ($toggle && $toggle.offsetParent === null && document.documentElement.getAttribute('data-whatinput') === 'mouse') return;
+				const clickDropdownToggle = (e) => {
 					e.preventDefault();
+					e.stopPropagation();
+
+					const $parentItem = e.target.closest('.menu-item-has-children');
+					if (!$parentItem) return;
+
 					$dropdownItems.forEach(item => {
-						if (item.contains(e.target)) {
+						if (item === $parentItem) {
 							const itemToShow = item.classList.contains('clicked') ? null : item;
 							toggleAriaOnSubmenus(itemToShow);
 							item.classList.toggle('clicked');
@@ -115,6 +137,15 @@ const CHEENAMESPACE_theme = (
 							item.classList.remove('clicked');
 						}
 					});
+				};
+
+				const clickTopLevelLink = (e) => {
+					if ($toggle && $toggle.offsetParent !== null && document.documentElement.getAttribute('data-whatinput') === 'mouse') {
+						return;
+					}
+					if ($toggle && $toggle.offsetParent === null) {
+						return;
+					}
 				};
 
 				const toggleCollapsible = (e, hidden = null) => {
@@ -137,13 +168,37 @@ const CHEENAMESPACE_theme = (
 					});
 				};
 
+				const createDropdownToggle = () => {
+					const $toggle = document.createElement('button');
+					$toggle.className = 'dropdown-toggle';
+					$toggle.setAttribute('aria-label', 'Toggle submenu');
+					$toggle.setAttribute('tabindex', '0');
+					$toggle.innerHTML = '<span class="sr-only">Toggle submenu</span>';
+					return $toggle;
+				};
+
 				const initDropdownItemListeners = () => {
 					$dropdownItems.forEach($item => {
 						$item.setAttribute('aria-haspopup', 'true');
-						const link = $item.querySelector(':scope > a');
-						if (link) {
-							link.addEventListener('click', clickHandler, true);
+
+						const $dropdownToggle = createDropdownToggle();
+						const $link = $item.querySelector(':scope > a');
+						if ($link) {
+							$link.parentNode.insertBefore($dropdownToggle, $link.nextSibling);
 						}
+
+						$dropdownToggle.addEventListener('click', clickDropdownToggle);
+						$dropdownToggle.addEventListener('keydown', (e) => {
+							if (e.key === 'Enter' || e.key === ' ') {
+								e.preventDefault();
+								clickDropdownToggle(e);
+							}
+						});
+
+						if ($link) {
+							$link.addEventListener('click', clickTopLevelLink);
+						}
+
 						hoverintent($item, hoverIntentOver, hoverIntentOut).options({
 							timeout: 200,
 							interval: 30,
