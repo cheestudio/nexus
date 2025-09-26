@@ -5,72 +5,72 @@
 ========================================================= */
 %h1,
 .h1,
-.has-type-h-1-font-size {
+.has-h-1-font-size {
   @include font("heading");
-  font-size: var(--wp--preset--font-size--type-h-1);
+  font-size: var(--wp--preset--font-size--h-1);
   font-weight: 700;
   line-height: 1.2;
 }
 
 %h2,
 .h2,
-.has-type-h-2-font-size {
+.has-h-2-font-size {
   @include font("heading");
-  font-size: var(--wp--preset--font-size--type-h-2);
+  font-size: var(--wp--preset--font-size--h-2);
   font-weight: 700;
   line-height: 1.2;
 }
 
 %h3,
 .h3,
-.has-type-h-3-font-size {
+.has-h-3-font-size {
   @include font("heading");
-  font-size: var(--wp--preset--font-size--type-h-3);
+  font-size: var(--wp--preset--font-size--h-3);
   font-weight: 400;
   line-height: 1.2;
 }
 
 %h4,
 .h4,
-.has-type-h-4-font-size {
+.has-h-4-font-size {
   @include font("heading");
-  font-size: var(--wp--preset--font-size--type-h-4);
+  font-size: var(--wp--preset--font-size--h-4);
   font-weight: 400;
   line-height: 1.2;
 }
 
 %h5,
 .h5,
-.has-type-h-5-font-size {
+.has-h-5-font-size {
   @include font("heading");
-  font-size: var(--wp--preset--font-size--type-h-5);
+  font-size: var(--wp--preset--font-size--h-5);
   font-weight: 400;
   line-height: 1.2;
 }
 
 %h6,
 .h6,
-.has-type-h-6-font-size {
+.has-h-6-font-size {
   @include font("heading");
-  font-size: var(--wp--preset--font-size--type-h-6);
+  font-size: var(--wp--preset--font-size--h-6);
   font-weight: 400;
   line-height: 1.2;
 }
 
 %body-copy,
-.has-type-body-font-size {
+.has-body-font-size {
   @include font("body");
-  font-size: var(--wp--preset--font-size--type-body);
+  font-size: var(--wp--preset--font-size--body);
   font-weight: 400;
   line-height: 1.2;
 }
 
 %body-copy-small,
-.has-type-body-small-font-size {
+.has-body-small-font-size {
   // optional overrides
 }
 
 %body-copy-large,
-.has-type-body-large-font-size {
+.has-body-large-font-size {
   // optional overrides
 }
