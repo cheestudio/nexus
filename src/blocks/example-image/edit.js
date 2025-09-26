@@ -1,7 +1,7 @@
 import {__} from "@wordpress/i18n";
 import {useBlockProps, InspectorControls} from "@wordpress/block-editor";
 import {Panel, PanelBody, BaseControl} from "@wordpress/components";
-import {ImageUpload} from "../../js/backend/imageUpload";
+import {ImageUpload} from "../../js/lib/ImageUpload";
 
 export default function Edit({attributes, setAttributes}) {
   const {imageObject} = attributes;
