@@ -4,13 +4,14 @@ const sass = require('sass'),
 
 // Configs
 const configs = {
-	name: 'chee_nexus',
+	name: 'pj_nexus',
 	files: ['frontend.scss', 'backend.scss'],
 	pathIn: './scss',
 	pathOut: '../dist/css',
 	acfBlocksPath: '../acf-blocks',
 	minify: true,
-	sourceMap: true
+	sourceMap: true,
+	compileAcfBlocks: false
 };
 
 const getOptions = (minify) => {
@@ -114,4 +115,6 @@ configs.files.forEach((file) => {
 	}
 });
 
-compileAcfBlocks();
+if (configs.compileAcfBlocks) {
+	compileAcfBlocks();
+}
