@@ -354,3 +354,7 @@
 	clip: rect(0, 0, 0, 0);
 	position: absolute;
 }
+
+.sr-only {
+	@include screen-reader-text;
+}
