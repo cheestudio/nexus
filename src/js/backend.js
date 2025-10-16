@@ -9,3 +9,6 @@ import './backend/attributeContentVisibility';
 
 // Add a max-width setting to paragraphs and headings
 import './backend/attributeMaxWidth';
+
+// Add a column list option to lists
+import './backend/attributeListOption';
