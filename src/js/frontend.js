@@ -25,25 +25,14 @@ const CHEENAMESPACE_theme = (
 
 		const constructorEarly = () => {
 			// Functions to initialize early
-			helloWorldEarly();
 		}
 
 		const constructorLate = () => {
 			// Functions to initialize late
-			helloWorldLate();
 			initNavigation();
 			accessibleLinkCards();
 			headerSearchToggle();
 		}
-
-		const helloWorldEarly = () => {
-			console.log('Hello World Early');
-		}
-
-		const helloWorldLate = () => {
-			console.log('Hello World Late');
-		}
-
 
 		const initNavigation = () => {
 			const navInstances = document.querySelectorAll('.chee-nav-element');
