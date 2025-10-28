@@ -30,10 +30,13 @@ const CHEENAMESPACE_theme = (
 		const constructorLate = () => {
 			// Functions to initialize late
 			initNavigation();
+			headerScroll();
 			accessibleLinkCards();
 			headerSearchToggle();
 		}
 
+		/* Main Navigation Component
+		========================================================= */
 		const initNavigation = () => {
 			const navInstances = document.querySelectorAll('.chee-nav-element');
 			if (!navInstances.length) return;
@@ -231,6 +234,22 @@ const CHEENAMESPACE_theme = (
 			});
 		}
 
+		/* Header Scroll Class
+		========================================================= */
+		const headerScroll = () => {
+			const header = document.getElementById("masthead");
+			window.addEventListener(
+				"scroll",
+				throttle(() => {
+					if (window.scrollY > 10) {
+						header.classList.add("scrolled");
+					} else {
+						header.classList.remove("scrolled");
+					}
+				}, 100)
+			);
+		};
+
 		/* Header Search Toggle
 		========================================================= */
 		const headerSearchToggle = () => {
@@ -310,90 +329,93 @@ const CHEENAMESPACE_theme = (
 
 		};
 
-			// Enables links for cards and other elements that need the entire element to be clickable
-			const accessibleLinkCards = () => {
+		/* Accessible Cards
+		========================================================= */
+		const accessibleLinkCards = () => {
 
-				const selectors = ['.wcag-card']; // add elements to array if needed
-	
-				const cardElements = document.querySelectorAll(selectors.join(', '));
-				if (!cardElements.length) return;
-	
-				cardElements.forEach((card) => {
-	
-					const firstAnchor = card.querySelector('a');
-					if (!firstAnchor) return; 
-	
-					const anchorUrl = firstAnchor.href;
-					const anchorTarget = firstAnchor.target;
-	
-					const navigateToLink = () => {
-						if (anchorTarget === '_blank') {
-							window.open(anchorUrl, "_blank");
-						} else {
-							window.location.href = anchorUrl;
-						}
-					};
-	
-					const handleCardClick = (event) => {
-						// Only navigate if the user didn't click on an interactive element directly.
-						if (!event.target.closest('a, button, input')) {
-							navigateToLink();
-						}
-					};
-	
-					const handleCardKeydown = (event) => {
-						if (event.key === 'Enter' || event.key === ' ') {
-							event.preventDefault(); 
-							navigateToLink();
-						}
-					};
-	
-					
-					const getAccessibleName = () => {
-						// use heading
-						const heading = card.querySelector('h1, h2, h3, h4, h5, h6');
-						if (heading && heading.textContent.trim()) {
-							return heading.textContent.trim();
-						}
-	
-						// if not, use link text
-						if (firstAnchor.textContent.trim()) {
-							return firstAnchor.textContent.trim();
-						}
-	
-						// if not, use aria-label
-						if (firstAnchor.getAttribute('aria-label')) {
-							return firstAnchor.getAttribute('aria-label');
-						}
-	
-						// generic
-						return 'Read more';
+			const selectors = ['.wcag-card']; // add elements to array if needed
+
+			const cardElements = document.querySelectorAll(selectors.join(', '));
+			if (!cardElements.length) return;
+
+			cardElements.forEach((card) => {
+
+				const firstAnchor = card.querySelector('a');
+				if (!firstAnchor) return;
+
+				const anchorUrl = firstAnchor.href;
+				const anchorTarget = firstAnchor.target;
+
+				const navigateToLink = () => {
+					if (anchorTarget === '_blank') {
+						window.open(anchorUrl, "_blank");
+					} else {
+						window.location.href = anchorUrl;
 					}
-	
-					// remove tab focus from all nested links to avoid redundant focus stops
-					const allLinks = card.querySelectorAll('a');
-					allLinks.forEach((link) => {
-						link.setAttribute('tabindex', '-1');
-					});
-	
-					// Set WCAG attributes on the card itself.
-					card.style.cursor = 'pointer';
-					card.setAttribute('tabindex', '0');
-					card.setAttribute('role', 'link');
-					card.setAttribute('aria-label', getAccessibleName());
-	
-					// allow for text selection.
-					card.addEventListener('click', (event) => {
-						if (window.getSelection().toString().length === 0) {
-							handleCardClick(event);
-						}
-					});
-					
-					card.addEventListener('keydown', handleCardKeydown);
-					
-				});
-			};
+				};
 
+				const handleCardClick = (event) => {
+					// Only navigate if the user didn't click on an interactive element directly.
+					if (!event.target.closest('a, button, input')) {
+						navigateToLink();
+					}
+				};
+
+				const handleCardKeydown = (event) => {
+					if (event.key === 'Enter' || event.key === ' ') {
+						event.preventDefault();
+						navigateToLink();
+					}
+				};
+
+
+				const getAccessibleName = () => {
+					// use heading
+					const heading = card.querySelector('h1, h2, h3, h4, h5, h6');
+					if (heading && heading.textContent.trim()) {
+						return heading.textContent.trim();
+					}
+
+					// if not, use link text
+					if (firstAnchor.textContent.trim()) {
+						return firstAnchor.textContent.trim();
+					}
+
+					// if not, use aria-label
+					if (firstAnchor.getAttribute('aria-label')) {
+						return firstAnchor.getAttribute('aria-label');
+					}
+
+					// generic
+					return 'Read more';
+				}
+
+				// remove tab focus from all nested links to avoid redundant focus stops
+				const allLinks = card.querySelectorAll('a');
+				allLinks.forEach((link) => {
+					link.setAttribute('tabindex', '-1');
+				});
+
+				// Set WCAG attributes on the card itself.
+				card.style.cursor = 'pointer';
+				card.setAttribute('tabindex', '0');
+				card.setAttribute('role', 'link');
+				card.setAttribute('aria-label', getAccessibleName());
+
+				// allow for text selection.
+				card.addEventListener('click', (event) => {
+					if (window.getSelection().toString().length === 0) {
+						handleCardClick(event);
+					}
+				});
+
+				card.addEventListener('keydown', handleCardKeydown);
+
+			});
+		};
+
+		/* Utils
+		========================================================= */
 		const throttle = (fn, delay) => {
 			let timeout = null;
 			return (...args) => {
