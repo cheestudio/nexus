@@ -13,7 +13,8 @@
   "supports": {
     "html": false,
     "spacing": {
-      "margin": true
+      "margin": true,
+			"padding": true
     }
   }
 }

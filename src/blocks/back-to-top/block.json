@@ -7,12 +7,10 @@
 	"category": "custom-blocks",
 	"example": {},
 	"supports": {
-		"spacing": {
-			"margin": [
-				"top",
-				"bottom"
-			]
-		}
+    "spacing": {
+      "margin": true,
+			"padding": true
+    }
 	},
 	"editorScript": "file:./index.js",
 	"style": "file:./style-index.css",

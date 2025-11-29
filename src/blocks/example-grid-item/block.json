@@ -13,7 +13,8 @@
     "inserter": false,
     "html": false,
     "spacing": {
-      "margin": false
+      "margin": true,
+			"padding": true
     }
   },
   "attributes": {

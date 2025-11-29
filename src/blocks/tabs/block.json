@@ -9,6 +9,13 @@
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"viewScript": "file:./view.js",
+	"supports": {
+		"html": false,
+		"spacing": {
+      "margin": true,
+			"padding": true
+    }
+	},
 	"attributes": {
 		"tabStyle": {
 			"type": "string",
