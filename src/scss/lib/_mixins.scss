@@ -69,8 +69,28 @@ $browser-context: 16; // Default
   }
 }
 
+/* Icons
+========================================================= */
+
+@mixin svg-icon(
+  $icon,
+  $width: toRem(16),
+  $height: toRem(15),
+  $color: currentColor
+) {
+  content: "";
+  display: inline-block;
+  width: $width;
+  height: $height;
+  background-color: $color;
+  mask-image: $icon;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
 /* Buttons
 ========================================================= */
+
 @mixin button {
   --padding: 15px 30px;
   --bg: var(--wp--preset--color--black);
@@ -93,7 +113,7 @@ $browser-context: 16; // Default
   text-decoration: none;
   outline-color: #000;
   cursor: pointer; // in case this is applied to a <button> instead of an <a>
-	width: auto; // override styles introduced in 6.8 
+	width: auto; // override styles introduced in 6.8
 	height: auto; // override styles introduced in 6.8
   &:hover,
   &:focus-visible {
