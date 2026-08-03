@@ -24,22 +24,42 @@ const handleImageRemove = () => {
   onImageChange={handleImageChange}
   onImageRemove={handleImageRemove}
   customSize="large"
-/> 
+/>
+
+FocalPoint is property of imageObject:
+
+const blockProps = useBlockProps({
+		className: 'BLOCKNAME alignfull',
+		style: {
+			'--bg-image': imageObject?.customSize
+				? `url('${imageObject.customSize}')`
+				: undefined,
+			'--bg-position': `${(imageObject?.focalPoint?.x ?? 0.5) * 100}% ${(imageObject?.focalPoint?.y ?? 0.5) * 100}%`,
+		},
+	});
+
 */
 
-
 import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
-import { Button } from '@wordpress/components';
+import { Button, FocalPointPicker, BaseControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 export function ImageUpload({ imageObject, onImageChange, onImageRemove, customSize = '1536x1536' }) {
 
   const handleImageChange = (media) => {
     const sizes = media.sizes || {};
-    const imageUrl = sizes[customSize]?.url || sizes['1536x1536']?.url || media.url; // custom image size with fallbacks
+    const imageUrl = sizes[customSize]?.url || sizes['1536x1536']?.url || media.url;
     onImageChange({
       ...media,
       customSize: imageUrl,
+      focalPoint: imageObject?.focalPoint || { x: 0.5, y: 0.5 },
+    });
+  };
+
+  const handleFocalPointChange = (newFocalPoint) => {
+    onImageChange({
+      ...imageObject,
+      focalPoint: newFocalPoint,
     });
   };
 
@@ -53,13 +73,27 @@ export function ImageUpload({ imageObject, onImageChange, onImageRemove, customS
           render={({ open }) => (
             <>
               {imageObject ? (
-                <img
-                  src={imageObject?.customSize}
-                  alt={__('Selected image', 'custom')}
-                  onClick={open}
-                  style={{ cursor: 'pointer', maxWidth: '100%' }}
-                  aria-label={__('Click to replace image', 'custom')}
-                />
+                <>
+                  <BaseControl label={__('Focal Point', 'custom')}>
+                    <FocalPointPicker
+                      url={imageObject?.customSize}
+                      value={imageObject?.focalPoint || { x: 0.5, y: 0.5 }}
+                      onDragStart={handleFocalPointChange}
+                      onDrag={handleFocalPointChange}
+                      onChange={handleFocalPointChange}
+                      aria-label={__('Adjust focal point', 'custom')}
+                      style={{ marginBottom: '25px' }}
+                    />
+                  </BaseControl>
+                  <Button
+                    onClick={open}
+                    variant="secondary"
+                    aria-label={__('Replace image', 'custom')}
+                    style={{ marginRight: '10px' }}
+                  >
+                    {__('Replace image', 'custom')}
+                  </Button>
+                </>
               ) : (
                 <Button
                   onClick={open}

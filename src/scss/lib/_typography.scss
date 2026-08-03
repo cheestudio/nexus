@@ -38,6 +38,10 @@ li {
   margin-top: 0;
 }
 
+.has-text-balance {
+	text-wrap: balance;
+}
+
 // Detailed heading styles defined in presets.scss
 // $headings: h1, h2, h3, h4, h5, h6;
 // @each $heading in $headings {

@@ -10,5 +10,8 @@ import './backend/attributeContentVisibility';
 // Add a max-width setting to paragraphs and headings
 import './backend/attributeMaxWidth';
 
+// Apply Text Wrap
+import './backend/attributeBalanceText';
+
 // Add a column list option to lists
 import './backend/attributeListOption';
