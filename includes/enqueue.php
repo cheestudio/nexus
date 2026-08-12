@@ -3,18 +3,18 @@
 namespace CHEENAMESPACE;
 
 // styles/scripts for the frontend
-add_action( 'wp_enqueue_scripts', 'CHEENAMESPACE\enqueue_frontend', 20 );
+add_action('wp_enqueue_scripts', 'CHEENAMESPACE\enqueue_frontend', 20);
 
 // styles/scripts for the frontend and the entire (not just the editor) backend edit page
-add_action( 'wp_head', 'CHEENAMESPACE\render_gfont_preconnect', 1 );
-add_action( 'enqueue_block_assets', 'CHEENAMESPACE\enqueue_frontend_and_backend' );
+add_action('wp_head', 'CHEENAMESPACE\render_gfont_preconnect', 1);
+add_action('enqueue_block_assets', 'CHEENAMESPACE\enqueue_frontend_and_backend');
 
 // styles/scripts for the block editor
-add_action( 'enqueue_block_editor_assets', 'CHEENAMESPACE\enqueue_backend_js' );
-add_action( 'after_setup_theme', 'CHEENAMESPACE\enqueue_backend_css' );
+add_action('enqueue_block_editor_assets', 'CHEENAMESPACE\enqueue_backend_js');
+add_action('after_setup_theme', 'CHEENAMESPACE\enqueue_backend_css');
 
 // get rid of jquery migrate (currently the only reason jquery is used is because of the Google Language Translator plugin...)
-add_action( 'wp_default_scripts', 'CHEENAMESPACE\dequeue_jquery_migrate' );
+add_action('wp_default_scripts', 'CHEENAMESPACE\dequeue_jquery_migrate');
 
 // Add custom head code
 add_action('wp_head', 'CHEENAMESPACE\theme_head_code');
@@ -29,17 +29,17 @@ add_action('wp_footer', 'CHEENAMESPACE\theme_footer_code');
 ========================================================= */
 
 function get_min_suffix() {
-	return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+	return defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 }
 
 function get_version() {
 	// add define('SCRIPT_DEBUG', true) to wp-config.php to enable dev mode
 	static $version;
-	if ( $version === null ) {
-		$dev_mode = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG; 
+	if ($version === null) {
+		$dev_mode = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG;
 
-		if ( ! $dev_mode ) {
-			$version = wp_get_theme()->get( "Version" ); // get version from style.css
+		if (! $dev_mode) {
+			$version = wp_get_theme()->get("Version"); // get version from style.css
 		} else {
 			$min     = get_min_suffix();
 			$files   = array(
@@ -48,9 +48,9 @@ function get_version() {
 				'dist/backend/backend.js',
 			);
 			$version = 0;
-			foreach ( $files as $file ) {
-				$filemtime = filemtime( get_stylesheet_directory() . '/' . $file );
-				if ( $filemtime > $version ) {
+			foreach ($files as $file) {
+				$filemtime = filemtime(get_stylesheet_directory() . '/' . $file);
+				if ($filemtime > $version) {
 					$version = $filemtime;
 				}
 			}
@@ -62,18 +62,18 @@ function get_version() {
 
 function enqueue_backend_css() {
 	$min = get_min_suffix();
-	add_editor_style( 'dist/css/backend' . $min . '.css' );
+	add_editor_style('dist/css/backend' . $min . '.css');
 }
 
 function enqueue_backend_js() {
 	$version = get_version();
 
 	// dependency logic by https://github.com/WordPress/gutenberg/issues/25330#issuecomment-1022935491
-	$dependencies = array( 'wp-blocks', 'wp-dom-ready' );
-	if ( is_object( get_current_screen() ) ) {
-		if ( get_current_screen()->id == 'site-editor' ) {
+	$dependencies = array('wp-blocks', 'wp-dom-ready');
+	if (is_object(get_current_screen())) {
+		if (get_current_screen()->id == 'site-editor') {
 			$dependencies[] = 'wp-edit-site';
-		} elseif ( get_current_screen()->id == 'widgets' ) {
+		} elseif (get_current_screen()->id == 'widgets') {
 			$dependencies[] = 'wp-edit-widgets';
 		} else {
 			$dependencies[] = 'wp-edit-post';
@@ -93,30 +93,33 @@ function enqueue_backend_js() {
 function enqueue_frontend() {
 	$min          = get_min_suffix();
 	$version      = get_version();
-	$dependencies = array( 'global-styles', 'gfonts' );
+	$dependencies = array('gfonts');
 
-	// theme
-	wp_enqueue_style( 'CHEENAMESPACE', get_stylesheet_directory_uri() . '/dist/css/frontend' . $min . '.css', $dependencies, $version );
-	wp_enqueue_script( 'CHEENAMESPACE', get_stylesheet_directory_uri() . '/dist/js/frontend' . $min . '.js', array(), $version, true );
+	// Theme
+	wp_enqueue_style('CHEENAMESPACE', get_stylesheet_directory_uri() . '/dist/css/frontend' . $min . '.css', $dependencies, $version);
+	wp_enqueue_script('CHEENAMESPACE', get_stylesheet_directory_uri() . '/dist/js/frontend' . $min . '.js', array(), $version, true);
 
+	// Register Swiper assets for block dependencies
+	wp_register_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css', array(), '12.2.0');
+	wp_register_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js', array(), '12.2.0', true);
 }
 
 function render_gfont_preconnect() {
-	?>
+?>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<?php
+<?php
 }
 
 function enqueue_frontend_and_backend() {
-	wp_enqueue_style( 'gfonts', 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap', array(), null );
+	wp_enqueue_style('gfonts', 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap', array(), null);
 }
 
-function dequeue_jquery_migrate( $scripts ) {
-	if ( ! is_admin() && ! empty( $scripts->registered['jquery'] ) ) {
+function dequeue_jquery_migrate($scripts) {
+	if (! is_admin() && ! empty($scripts->registered['jquery'])) {
 		$scripts->registered['jquery']->deps = array_diff(
 			$scripts->registered['jquery']->deps,
-			[ 'jquery-migrate' ]
+			['jquery-migrate']
 		);
 	}
 }

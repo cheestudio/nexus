@@ -4,6 +4,8 @@ namespace CHEENAMESPACE;
 
 /* Init
 ========================================================= */
+// Disable XML-RPC
+add_filter("xmlrpc_enabled", "__return_false");
 
 // Setup
 add_action('after_setup_theme', 'CHEENAMESPACE\setup');
