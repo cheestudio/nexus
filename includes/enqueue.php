@@ -95,9 +95,13 @@ function enqueue_frontend() {
 	$version      = get_version();
 	$dependencies = array('gfonts');
 
-	// theme
+	// Theme
 	wp_enqueue_style('CHEENAMESPACE', get_stylesheet_directory_uri() . '/dist/css/frontend' . $min . '.css', $dependencies, $version);
 	wp_enqueue_script('CHEENAMESPACE', get_stylesheet_directory_uri() . '/dist/js/frontend' . $min . '.js', array(), $version, true);
+
+	// Register Swiper assets for block dependencies
+	wp_register_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css', array(), '12.2.0');
+	wp_register_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js', array(), '12.2.0', true);
 }
 
 function render_gfont_preconnect() {
