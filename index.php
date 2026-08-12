@@ -2,18 +2,14 @@
 
 namespace CHEENAMESPACE;
 
-if (!class_exists('ACF')) {
-	echo 'To use this theme, please install and activate the Advanced Custom Fields PRO plugin.';
-	return;
-}
 $singular_block_template = is_singular()
-	? get_block_template( get_stylesheet() . '//' . 'single-' . get_post_type(), 'wp_template_part' )
+	? get_block_template(get_stylesheet() . '//' . 'single-' . get_post_type(), 'wp_template_part')
 	: false;
 
 get_header();
 ?>
 <main id="top-of-content">
-<div class="wp-site-blocks is-layout-constrained" id="wp--skip-link--target">
+	<div class="wp-site-blocks is-layout-constrained" id="wp--skip-link--target">
 		<?php
 		if (is_404()) :
 			block_template_part('404');
