@@ -29,14 +29,14 @@ const handleImageRemove = () => {
 FocalPoint is property of imageObject:
 
 const blockProps = useBlockProps({
-		className: 'BLOCKNAME alignfull',
-		style: {
-			'--bg-image': imageObject?.customSize
-				? `url('${imageObject.customSize}')`
-				: undefined,
-			'--bg-position': `${(imageObject?.focalPoint?.x ?? 0.5) * 100}% ${(imageObject?.focalPoint?.y ?? 0.5) * 100}%`,
-		},
-	});
+    className: 'BLOCKNAME alignfull',
+    style: {
+      '--bg-image': imageObject?.customSize
+        ? `url('${imageObject.customSize}')`
+        : undefined,
+      '--bg-position': `${(imageObject?.focalPoint?.x ?? 0.5) * 100}% ${(imageObject?.focalPoint?.y ?? 0.5) * 100}%`,
+    },
+  });
 
 */
 
@@ -44,11 +44,11 @@ import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import { Button, FocalPointPicker, BaseControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
-export function ImageUpload({ imageObject, onImageChange, onImageRemove, customSize = '1536x1536' }) {
+export function ImageUpload({ imageObject, onImageChange, onImageRemove, customSize = 'large' }) {
 
   const handleImageChange = (media) => {
     const sizes = media.sizes || {};
-    const imageUrl = sizes[customSize]?.url || sizes['1536x1536']?.url || media.url;
+    const imageUrl = sizes[customSize]?.url || sizes['large']?.url || media.url;
     onImageChange({
       ...media,
       customSize: imageUrl,
