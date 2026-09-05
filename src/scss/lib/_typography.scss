@@ -10,6 +10,7 @@ body {
   background: #fff;
   font-optical-sizing: auto;
 }
+
 p,
 li {
   font-size: var(--wp--preset--font-size--body, 16px);
@@ -27,19 +28,22 @@ li {
 :where(h1, h2, h3, h4, h5, h6) {
   margin-top: toRem(10);
   margin-bottom: toRem(20);
+
   &:first-child {
     margin-top: 0;
   }
 }
+
 :where(h1, h2, .h1, .h2) {
   margin-bottom: toRem(30);
 }
+
 :where(:is(h1, h2, h3, h4, h5, h6) + p) {
   margin-top: 0;
 }
 
 .has-text-balance {
-	text-wrap: balance;
+  text-wrap: balance;
 }
 
 // Detailed heading styles defined in presets.scss
@@ -53,16 +57,21 @@ li {
 /* LINKS
 ========================================================= */
 a {
-  text-decoration-line: none;
-  .entry-content & {
-    text-decoration: underline;
-  }
+  text-decoration: none;
+
   & {
     color: currentColor;
   }
+
   .vcard &[href^="mailto:"],
   .vcard &[href^="tel:"] {
     font-weight: inherit;
+  }
+}
+
+:where(h1, h2, h3, h4, h5, h6, p, li) {
+  a {
+    text-decoration: underline;
   }
 }
 
@@ -78,6 +87,7 @@ a {
 }
 
 @media only screen and (hover: none) and (pointer: coarse) {
+
   // prevent zoom on focus in safari mobile
   input:focus,
   textarea:focus {
